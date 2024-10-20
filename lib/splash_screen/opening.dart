@@ -10,30 +10,34 @@ class Openingpage extends StatefulWidget {
 }
 
 class _OpeningpageState extends State<Openingpage> {
-  void initState(){
+  void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 4), (){
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => IntroScreenpage()));
+    Future.delayed(Duration(seconds: 4), () {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => IntroScreenpage()));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 255, 255, 255),
-            Colors.blue.shade200
-          ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter
+        body: Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            colors: [Color.fromARGB(255, 255, 255, 255), Colors.blue.shade200],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter),
+      ),
+      child: Center(
+        child: AnimatedTextKit(animatedTexts: [
+          TyperAnimatedText(
+            'BANK-KU',
+            textStyle: TextStyle(
+                fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black),
+            speed: Duration(milliseconds: 340),
           ),
-        ),
-        child: Center(
-          child: AnimatedTextKit(animatedTexts: [TyperAnimatedText('BANK-KU', textStyle: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black),speed: Duration(milliseconds: 340),),
         ]),
-      ),)
-    );
+      ),
+    ));
   }
 }
