@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:id_camp_final_project/model/introModel.dart';
-import 'package:id_camp_final_project/pages/home.dart';
+import 'package:id_camp_final_project/pages/signIn.dart';
 
 class IntroScreenpage extends StatefulWidget {
   IntroScreenpage({super.key});
@@ -11,15 +11,15 @@ class IntroScreenpage extends StatefulWidget {
 
 class _IntroScreenpageState extends State<IntroScreenpage> {
   //membuat variabel baru untuk memanggil model
-  List<Intromodel> gambarIntro = [];
+  List<Intromodel> introModel = [];
   var indexNow = 0;
   late PageController pageContoller;
 
   void _getInitialInfo() {
-    gambarIntro = Intromodel.getIntroModel();
+    introModel = Intromodel.getIntroModel();
   }
 
-  @override
+  @override //pemberian override agar bisa dipanggil
   void initState() {
     pageContoller = PageController(initialPage: 0);
     super.initState();
@@ -62,12 +62,12 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
                           margin: EdgeInsets.only(top: 130),
                           height: 300,
                           child: Image.asset(
-                            "${gambarIntro[index].linkGambar}",
+                            "${introModel[index].linkGambar}",
                           )),
                       Padding(
                         padding: EdgeInsets.fromLTRB(10, 10, 10, 20),
                         child: Text(
-                          "${gambarIntro[index].judul}",
+                          "${introModel[index].judul}",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 28),
@@ -76,7 +76,7 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 40),
                         child: Text(
-                          "${gambarIntro[index].deskripsi}",
+                          "${introModel[index].deskripsi}",
                           textAlign: TextAlign.center,
                           style:
                               TextStyle(color: Colors.black.withOpacity(0.6)),
@@ -86,7 +86,7 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
                   ),
                 );
               },
-              itemCount: gambarIntro.length,
+              itemCount: introModel.length,
             ),
           ),
           Container(
@@ -96,7 +96,7 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
-                      gambarIntro.length,
+                      introModel.length,
                       (index) => Container(
                             width: (indexNow == index) ? 13 : 7,
                             height: 7,
@@ -111,8 +111,8 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
           InkWell(
             onTap: () {
               //nilai indexNow jika sama dengan 2, maka pindah ke halaman homepage
-              (indexNow == gambarIntro.length - 1) ?
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()))
+              (indexNow == introModel.length - 1) ?
+              Navigator.pop(context, MaterialPageRoute(builder: (context) => Signinpage()))
               //jika tidak, maka pindah ke page view selanjutnya
               : pageContoller.nextPage(
                 duration: Duration(milliseconds: 500),
@@ -136,7 +136,7 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
                   ]),
               child: Center(
                   child: Text(
-                (indexNow == gambarIntro.length - 1) ? "Mulai" : "Selanjutnya",
+                (indexNow == introModel.length - 1) ? "Mulai" : "Selanjutnya",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               )),
             ),
