@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme()
       ),
-      home: IntroScreenpage(),
+      home: Openingpage(),
     );
   }
 }

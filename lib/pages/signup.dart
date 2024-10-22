@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:id_camp_final_project/pages/home.dart';
 import 'package:id_camp_final_project/pages/signIn.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -10,6 +11,11 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  TextEditingController username = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController phoneNumber = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +72,7 @@ class _SignupState extends State<Signup> {
               Container(
                   padding: EdgeInsets.fromLTRB(22, 0, 23, 0),
                   child: TextField(
+                    controller: username,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(10),
                       prefixIcon: Icon(
@@ -85,6 +92,7 @@ class _SignupState extends State<Signup> {
               Container(
                   padding: EdgeInsets.fromLTRB(22, 0, 23, 0),
                   child: TextField(
+                    controller: phoneNumber,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(10),
                       prefixIcon: Icon(
@@ -104,6 +112,7 @@ class _SignupState extends State<Signup> {
               Container(
                   padding: EdgeInsets.fromLTRB(22, 0, 23, 0),
                   child: TextField(
+                    controller: email,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(10),
                       prefixIcon: Icon(
@@ -123,6 +132,7 @@ class _SignupState extends State<Signup> {
               Container(
                   padding: EdgeInsets.fromLTRB(22, 0, 23, 0),
                   child: TextField(
+                    controller: password,
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
                         prefixIcon: Icon(
@@ -141,8 +151,23 @@ class _SignupState extends State<Signup> {
                 margin: EdgeInsets.symmetric(horizontal: 22),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => Homepage()));
+                    if(username.text.isEmpty || phoneNumber.text.isEmpty || email.text.isEmpty || password.text.isEmpty){
+                      Fluttertoast.showToast(
+                        msg: "Please fill all fields",
+                        gravity: ToastGravity.BOTTOM,
+                        textColor: Colors.white,
+                        backgroundColor: const Color.fromARGB(255, 253, 17, 0),
+                        toastLength: Toast.LENGTH_LONG,
+                        webBgColor: "black",
+                        webPosition: "center"
+                      );
+                    }else{
+                      Navigator.pushReplacement(context, MaterialPageRoute(
+                        builder: (context) {
+                          return Homepage();
+                        },
+                      ));
+                    }
                   },
                   style: ButtonStyle(
                     shape: MaterialStatePropertyAll(RoundedRectangleBorder(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:id_camp_final_project/pages/home.dart';
 import 'package:id_camp_final_project/pages/signup.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Signinpage extends StatefulWidget {
   const Signinpage({super.key});
@@ -12,7 +13,8 @@ class Signinpage extends StatefulWidget {
 class _SigninpageState extends State<Signinpage> {
   var email = "Admin";
   var password = "Admin123";
-  bool _passwordVisible = false;
+  bool _passwordVisible = true;
+  bool _obscureText = true;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -76,6 +78,7 @@ class _SigninpageState extends State<Signinpage> {
               Container(
                   margin: EdgeInsets.fromLTRB(22, 0, 23, 0),
                   child: TextField(
+                    controller: emailController,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(10),
                       hintText: email,
@@ -97,7 +100,10 @@ class _SigninpageState extends State<Signinpage> {
               ),
               Container(
                   padding: EdgeInsets.fromLTRB(22, 0, 23, 0),
-                  child: TextField(
+                  child: TextFormField(
+                    controller: passwordController,
+                    //_passwordVisible bernilai true
+                    obscureText: _passwordVisible,
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
                         hintText: password,
@@ -109,10 +115,14 @@ class _SigninpageState extends State<Signinpage> {
                         suffixIcon: IconButton(
                           onPressed: () {
                             setState(() {
+                              //ketika di klik, maka nilai variabel berubah dari true ke false
                               _passwordVisible = !_passwordVisible;
                             });
                           },
-                          icon: Icon(Icons.remove_red_eye_outlined),
+                          //jika passwordVisible bernilai true maka icon yang muncul adalah visibility_off_outlined, jika false maka icon yang muncul adalah remove_red_eye_outlined
+                          icon: Icon(_passwordVisible
+                              ? Icons.visibility_off_outlined
+                              : Icons.remove_red_eye_outlined),
                         )),
                   )),
               SizedBox(
@@ -123,8 +133,81 @@ class _SigninpageState extends State<Signinpage> {
                 margin: EdgeInsets.symmetric(horizontal: 22),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => Homepage()));
+                    //validasi saat email dan password kosong
+                    if (emailController.text == "" &&
+                        passwordController.text == "") {
+                      Fluttertoast.showToast(
+                          msg: "Please enter your email and password",
+                          textColor: Colors.white,
+                          backgroundColor: const Color.fromARGB(
+                              255, 255, 17, 0), //warna bg android
+                          gravity: ToastGravity.BOTTOM, //posisi pada android
+                          timeInSecForIosWeb: 3, //lama muncul pesan pada web
+                          webPosition:
+                              "center", //posisi pada web + kombinasi gravity
+                          webBgColor: "white", //warna pada web
+                          toastLength: Toast.LENGTH_LONG //lama muncul android
+                          );
+                      //validasi saat email kosong
+                    } else if (emailController.text == "") {
+                      Fluttertoast.showToast(
+                          msg: "Please enter your email",
+                          textColor: Colors.white,
+                          backgroundColor: const Color.fromARGB(
+                              255, 255, 17, 0), //warna bg android
+                          gravity: ToastGravity.BOTTOM, //posisi pada android
+                          timeInSecForIosWeb: 3, //lama muncul pesan pada web
+                          webPosition:
+                              "center", //posisi pada web + kombinasi gravity
+                          webBgColor: "white", //warna pada web
+                          toastLength: Toast.LENGTH_LONG //lama muncul android
+                          );
+                      //validasi saat password kosong
+                    } else if (passwordController.text == "") {
+                      Fluttertoast.showToast(
+                          msg: "Please enter password",
+                          textColor: Colors.white,
+                          backgroundColor: const Color.fromARGB(
+                              255, 255, 17, 0), //warna bg android
+                          gravity: ToastGravity.BOTTOM, //posisi pada android
+                          timeInSecForIosWeb: 3, //lama muncul pesan pada web
+                          webPosition:
+                              "center", //posisi pada web + kombinasi gravity
+                          webBgColor: "white", //warna pada web
+                          toastLength: Toast.LENGTH_LONG //lama muncul android
+                          );
+                    } else if (emailController.text == "" &&
+                        passwordController.text == "") {
+                      Fluttertoast.showToast(
+                          msg: "Please enter your email and password",
+                          textColor: Colors.white,
+                          backgroundColor: const Color.fromARGB(
+                              255, 255, 17, 0), //warna bg android
+                          gravity: ToastGravity.BOTTOM, //posisi pada android
+                          timeInSecForIosWeb: 3, //lama muncul pesan pada web
+                          webPosition:
+                              "center", //posisi pada web + kombinasi gravity
+                          webBgColor: "white", //warna pada web
+                          toastLength: Toast.LENGTH_LONG //lama muncul android
+                          );
+                    } else if (emailController.text == "Admin" &&
+                        passwordController.text == "Admin123") {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => Homepage()));
+                    } else {
+                      Fluttertoast.showToast(
+                          msg: "Invalid email or password",
+                          textColor: Colors.white,
+                          backgroundColor: const Color.fromARGB(
+                              255, 255, 17, 0), //warna bg android
+                          gravity: ToastGravity.BOTTOM, //posisi pada android
+                          timeInSecForIosWeb: 3, //lama muncul pesan pada web
+                          webPosition:
+                              "center", //posisi pada web + kombinasi gravity
+                          webBgColor: "white", //warna pada web
+                          toastLength: Toast.LENGTH_LONG //lama muncul android
+                          );
+                    }
                   },
                   style: ButtonStyle(
                     shape: MaterialStatePropertyAll(RoundedRectangleBorder(
