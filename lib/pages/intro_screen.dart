@@ -112,7 +112,7 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
             onTap: () {
               //nilai indexNow jika sama dengan 2, maka pindah ke halaman homepage
               (indexNow == introModel.length - 1) ?
-              Navigator.pop(context, MaterialPageRoute(builder: (context) => Signinpage()))
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Signinpage()))
               //jika tidak, maka pindah ke page view selanjutnya
               : pageContoller.nextPage(
                 duration: Duration(milliseconds: 500),

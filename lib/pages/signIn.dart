@@ -10,6 +10,17 @@ class Signinpage extends StatefulWidget {
 }
 
 class _SigninpageState extends State<Signinpage> {
+  var email = "Admin";
+  var password = "Admin123";
+  bool _passwordVisible = false;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    _passwordVisible;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +45,9 @@ class _SigninpageState extends State<Signinpage> {
                     color: Colors.grey.withOpacity(0.3),
                   ),
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: Icon(Icons.arrow_back_ios_new),
                   ),
                 )
@@ -61,9 +74,13 @@ class _SigninpageState extends State<Signinpage> {
                         fontSize: 15, color: Colors.black.withOpacity(0.5))),
               ),
               Container(
-                  padding: EdgeInsets.fromLTRB(22, 0, 23, 0),
+                  margin: EdgeInsets.fromLTRB(22, 0, 23, 0),
                   child: TextField(
                     decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(10),
+                      hintText: email,
+                      hintStyle:
+                          TextStyle(color: Colors.black.withOpacity(0.5)),
                       prefixIcon: Icon(
                         Icons.email_outlined,
                       ),
@@ -82,11 +99,19 @@ class _SigninpageState extends State<Signinpage> {
                   padding: EdgeInsets.fromLTRB(22, 0, 23, 0),
                   child: TextField(
                     decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(10),
+                        hintText: password,
+                        hintStyle:
+                            TextStyle(color: Colors.black.withOpacity(0.5)),
                         prefixIcon: Icon(
                           Icons.lock_outline,
                         ),
                         suffixIcon: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              _passwordVisible = !_passwordVisible;
+                            });
+                          },
                           icon: Icon(Icons.remove_red_eye_outlined),
                         )),
                   )),
@@ -98,7 +123,8 @@ class _SigninpageState extends State<Signinpage> {
                 margin: EdgeInsets.symmetric(horizontal: 22),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()));
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Homepage()));
                   },
                   style: ButtonStyle(
                     shape: MaterialStatePropertyAll(RoundedRectangleBorder(
@@ -119,14 +145,15 @@ class _SigninpageState extends State<Signinpage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    child: Row(
-                      children: [
+                      child: Row(children: [
                     Text("Don't have an account?"),
                     TextButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) {
-                          return Signup();
-                        },));
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return Signup();
+                          },
+                        ));
                       },
                       child: Text("Sign Up"),
                     )
