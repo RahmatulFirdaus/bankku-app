@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:id_camp_final_project/pages/home.dart';
+import 'package:id_camp_final_project/pages/getXController.dart';
 import 'package:id_camp_final_project/pages/signIn.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -164,7 +164,7 @@ class _SignupState extends State<Signup> {
                     }else{
                       Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) {
-                          return Homepage();
+                          return Getxcontrollerpage();
                         },
                       ));
                     }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:id_camp_final_project/pages/home.dart';
+import 'package:id_camp_final_project/pages/getXController.dart';
 import 'package:id_camp_final_project/pages/signup.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -193,7 +193,7 @@ class _SigninpageState extends State<Signinpage> {
                     } else if (emailController.text == "Admin" &&
                         passwordController.text == "Admin123") {
                       Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => Homepage()));
+                          MaterialPageRoute(builder: (context) => Getxcontrollerpage()));
                     } else {
                       Fluttertoast.showToast(
                           msg: "Invalid email or password",
