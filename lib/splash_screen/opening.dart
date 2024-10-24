@@ -30,7 +30,7 @@ class _OpeningpageState extends State<Openingpage> {
       ),
       child: Center(
         child: AnimatedTextKit(animatedTexts: [
-          TyperAnimatedText(
+          TypewriterAnimatedText(
             'BANK-KU',
             textStyle: TextStyle(
                 fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black),

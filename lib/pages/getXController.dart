@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:id_camp_final_project/pages/home.dart';
-import 'package:id_camp_final_project/pages/profile.dart';
+import 'package:id_camp_final_project/pages/myCard.dart';
 import 'package:id_camp_final_project/pages/settings.dart';
 import 'package:id_camp_final_project/pages/statistics.dart';
 
@@ -29,7 +29,7 @@ class _GetxcontrollerpageState extends State<Getxcontrollerpage> {
           },
           destinations: [
             NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-            NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
+            NavigationDestination(icon: Icon(Icons.person), label: "My Cards"),
             NavigationDestination(icon: Icon(Icons.analytics), label: "Statistics"),
             NavigationDestination(icon: Icon(Icons.settings), label: "Settings"),
           ],
@@ -43,7 +43,7 @@ class NavigationController extends GetxController {
 
   final List<Widget> screen = [
     Homepage(),
-    Profilepage(),
+    Mycard(),
     Statisticspage(),
     Settingspage(),
   ];

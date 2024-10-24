@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:id_camp_final_project/pages/getXController.dart';
 import 'package:id_camp_final_project/pages/signIn.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 class Signup extends StatefulWidget {
   const Signup({super.key});
 

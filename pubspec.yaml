@@ -35,6 +35,7 @@ dependencies:
   fluttertoast: ^8.2.8
   google_fonts: ^6.2.1
   get: ^4.6.6
+  fl_chart: ^0.69.0
 
 dev_dependencies:
   flutter_lints: ^4.0.0
