@@ -41,14 +41,14 @@ class _LanguePageState extends State<LanguagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Language"),
+        title: const Text("Language"),
         centerTitle: true,
       ),
       body: Container(
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+              margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
               child: TextField(
                 controller: searchController,
                 onChanged: searchLanguage,
@@ -57,15 +57,15 @@ class _LanguePageState extends State<LanguagePage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 hintText: "Search Language",
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: const Icon(Icons.search),
               )),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             ListView.separated(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text("${searchList[index]}"),
@@ -85,12 +85,12 @@ class _LanguePageState extends State<LanguagePage> {
                 },
                 separatorBuilder: (context, index) {
                   return Container(
-                      margin: EdgeInsets.symmetric(horizontal: 15),
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
                       child: Divider(color: Colors.black.withOpacity(0.2)));
                 },
                 itemCount: searchList.length),
             Container(
-                margin: EdgeInsets.symmetric(horizontal: 15),
+                margin: const EdgeInsets.symmetric(horizontal: 15),
                 child: Divider(color: Colors.black.withOpacity(0.2)))
           ],
         ),

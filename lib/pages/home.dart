@@ -31,7 +31,7 @@ class _HomepageState extends State<Homepage> {
             Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           Container(
             // color: Colors.blue,
-            margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+            margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -45,7 +45,7 @@ class _HomepageState extends State<Homepage> {
                           "assets/images/lunatif.png",
                           width: 55,
                         )),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -57,7 +57,7 @@ class _HomepageState extends State<Homepage> {
                               fontSize: 15,
                               color: Colors.black.withOpacity(0.5)),
                         ),
-                        Text(
+                        const Text(
                           "Rahmatul Firdaus",
                           style: TextStyle(
                             fontSize: 20,
@@ -67,7 +67,7 @@ class _HomepageState extends State<Homepage> {
                     )
                   ],
                 )),
-                SizedBox(
+                const SizedBox(
                   width: 50,
                 ),
                 Container(
@@ -78,22 +78,22 @@ class _HomepageState extends State<Homepage> {
                       shape: BoxShape.circle),
                   child: IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.search),
+                    icon: const Icon(Icons.search),
                   ),
                 ),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
             child: Image.asset(
               "assets/images/kartudebit.jpg",
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
           Container(
@@ -114,7 +114,7 @@ class _HomepageState extends State<Homepage> {
                         children: [
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.arrow_upward_outlined,
                               size: 30,
                             ),
@@ -122,10 +122,10 @@ class _HomepageState extends State<Homepage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text("Sent")
+                    const Text("Sent")
                   ],
                 ),
                 Column(
@@ -142,7 +142,7 @@ class _HomepageState extends State<Homepage> {
                         children: [
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.arrow_downward_outlined,
                               size: 30,
                             ),
@@ -150,10 +150,10 @@ class _HomepageState extends State<Homepage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text("Receive")
+                    const Text("Receive")
                   ],
                 ),
                 Column(
@@ -170,7 +170,7 @@ class _HomepageState extends State<Homepage> {
                         children: [
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.attach_money,
                               size: 30,
                             ),
@@ -178,10 +178,10 @@ class _HomepageState extends State<Homepage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text("Loan")
+                    const Text("Loan")
                   ],
                 ),
                 Column(
@@ -198,7 +198,7 @@ class _HomepageState extends State<Homepage> {
                         children: [
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.cloud_upload_outlined,
                               size: 30,
                             ),
@@ -206,21 +206,21 @@ class _HomepageState extends State<Homepage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text("Top Up")
+                    const Text("Top Up")
                   ],
                 ),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Container(
-            margin: EdgeInsets.only(left: 20, right: 35),
-            child: Row(
+            margin: const EdgeInsets.only(left: 20, right: 35),
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
@@ -234,39 +234,39 @@ class _HomepageState extends State<Homepage> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
-              margin: EdgeInsets.symmetric(horizontal: 5),
+              margin: const EdgeInsets.symmetric(horizontal: 5),
               child: ListView.separated(
                   scrollDirection: Axis.vertical,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return ListTile(
                         title: Text(
-                          "${transaksi[index].judul}",
-                          style: TextStyle(
+                          transaksi[index].judul,
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
-                        subtitle: Text("${transaksi[index].deskripsi}", style: TextStyle(color: Colors.black.withOpacity(0.5)),),
+                        subtitle: Text(transaksi[index].deskripsi, style: TextStyle(color: Colors.black.withOpacity(0.5)),),
                         trailing: Text(
-                          "${transaksi[index].nominal}",
-                          style: TextStyle(
+                          transaksi[index].nominal,
+                          style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 15),
                         ),
-                        leading: Container(
+                        leading: SizedBox(
                           width: 75,
                           child: ClipRRect(
                               borderRadius: BorderRadius.circular(80),
                               child: Image.asset(
-                                "${transaksi[index].gambar}",
+                                transaksi[index].gambar,
                                 // width: 100,
                                 errorBuilder: (BuildContext context,
                                     Object exception, StackTrace? stackTrace) {
-                                  return Icon(
+                                  return const Icon(
                                     Icons.broken_image,
                                     size: 55,
                                     color: Colors.grey,
@@ -275,7 +275,7 @@ class _HomepageState extends State<Homepage> {
                               )),
                         ));
                   },
-                  separatorBuilder: (context, index) => SizedBox(height: 10),
+                  separatorBuilder: (context, index) => const SizedBox(height: 10),
                   shrinkWrap: true,
                   itemCount: transaksi.length))
         ]),

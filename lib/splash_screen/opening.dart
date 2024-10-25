@@ -10,11 +10,12 @@ class Openingpage extends StatefulWidget {
 }
 
 class _OpeningpageState extends State<Openingpage> {
+  @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 4), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => IntroScreenpage()));
+          MaterialPageRoute(builder: (context) => const IntroScreenpage()));
     });
   }
 
@@ -24,7 +25,7 @@ class _OpeningpageState extends State<Openingpage> {
         body: Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            colors: [Color.fromARGB(255, 255, 255, 255), Colors.blue.shade200],
+            colors: [const Color.fromARGB(255, 255, 255, 255), Colors.blue.shade200],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter),
       ),
@@ -32,9 +33,9 @@ class _OpeningpageState extends State<Openingpage> {
         child: AnimatedTextKit(animatedTexts: [
           TypewriterAnimatedText(
             'BANK-KU',
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
                 fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black),
-            speed: Duration(milliseconds: 340),
+            speed: const Duration(milliseconds: 340),
           ),
         ]),
       ),

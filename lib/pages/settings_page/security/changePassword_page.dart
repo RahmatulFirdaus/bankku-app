@@ -7,10 +7,10 @@ class ChangepasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Change Password"),
+        title: const Text("Change Password"),
         centerTitle: true,
       ),
-      body: Center(
+      body: const Center(
         child: Text("Change Password"),
       ),
     );

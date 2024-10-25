@@ -34,25 +34,25 @@ class _SettingspageState extends State<Settingspage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Padding(
+        leading: const Padding(
           padding: EdgeInsets.only(left: 20),
           child: Icon(Icons.menu),
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 20),
+            padding: const EdgeInsets.only(right: 20),
             child: IconButton(
               onPressed: () {
                 SystemNavigator.pop();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.exit_to_app,
                 size: 26,
               ),
             ),
           )
         ],
-        title: Text(
+        title: const Text(
           "Settings",
           style: TextStyle(color: Colors.black, fontSize: 25),
         ),
@@ -65,20 +65,20 @@ class _SettingspageState extends State<Settingspage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
+              margin: const EdgeInsets.fromLTRB(20, 10, 20, 0),
               child: Text(
                 "General",
                 style: TextStyle(
                     fontSize: 17, color: Colors.black.withOpacity(0.5)),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 5),
+              margin: const EdgeInsets.symmetric(horizontal: 5),
               child: ListView.separated(
                 shrinkWrap:
                     true, // Menghindari ListView mengambil seluruh ruang
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: getGeneral.length,
                 itemBuilder: (context, index) {
                   return ListTile(
@@ -89,15 +89,15 @@ class _SettingspageState extends State<Settingspage> {
                         switch (getGeneral[index].name) {
                           case "Language":
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => LanguagePage()));
+                                builder: (context) => const LanguagePage()));
                             break;
                           case "My Profile":
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ProfilePage()));
+                                builder: (context) => const ProfilePage()));
                             break;
                           case "Contact Us":
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ContactPage()));
+                                builder: (context) => const ContactPage()));
                             break;
                           default:
                             print("error");
@@ -107,7 +107,7 @@ class _SettingspageState extends State<Settingspage> {
                   );
                 },
                 separatorBuilder: (context, index) => Container(
-                  margin: EdgeInsets.symmetric(horizontal: 14),
+                  margin: const EdgeInsets.symmetric(horizontal: 14),
                   child: Divider(
                     color: Colors.black.withOpacity(0.2),
                   ),
@@ -115,26 +115,26 @@ class _SettingspageState extends State<Settingspage> {
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Divider(
                 color: Colors.black.withOpacity(0.2),
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 "Security",
                 style: TextStyle(
                     fontSize: 17, color: Colors.black.withOpacity(0.5)),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 5),
+              margin: const EdgeInsets.symmetric(horizontal: 5),
               child: ListView.separated(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: getSecurity.length,
                 itemBuilder: (context, index) {
                   return ListTile(
@@ -145,11 +145,11 @@ class _SettingspageState extends State<Settingspage> {
                         switch (getSecurity[index].name) {
                           case "Change Password":
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ChangepasswordPage()));
+                                builder: (context) => const ChangepasswordPage()));
                             break;
                           case "Privacy Policy":
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => PrivacypolicyPage()));
+                                builder: (context) => const PrivacypolicyPage()));
                             break;
                           default:
                             print("error");
@@ -159,7 +159,7 @@ class _SettingspageState extends State<Settingspage> {
                   );
                 },
                 separatorBuilder: (context, index) => Container(
-                  margin: EdgeInsets.symmetric(horizontal: 14),
+                  margin: const EdgeInsets.symmetric(horizontal: 14),
                   child: Divider(
                     color: Colors.black.withOpacity(0.2),
                   ),
@@ -167,7 +167,7 @@ class _SettingspageState extends State<Settingspage> {
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Divider(
                 color: Colors.black.withOpacity(0.2),
               ),

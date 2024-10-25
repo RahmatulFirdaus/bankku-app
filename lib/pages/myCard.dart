@@ -28,23 +28,23 @@ class _MycardState extends State<Mycard> {
     return Scaffold(
       backgroundColor: Colors.white,
         appBar: AppBar(
-          leading: Padding(
+          leading: const Padding(
             padding: EdgeInsets.only(left: 20),
             child: Icon(Icons.menu),
           ),
           actions: [
             Padding(
-              padding: EdgeInsets.only(right: 20),
+              padding: const EdgeInsets.only(right: 20),
               child: IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.add,
                   size: 26,
                 ),
               ),
             )
           ],
-          title: Text(
+          title: const Text(
             "My Card",
             style: TextStyle(color: Colors.black, fontSize: 25),
           ),
@@ -55,47 +55,47 @@ class _MycardState extends State<Mycard> {
         body: SingleChildScrollView(
             child: Column(children: [
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
             child: Image.asset(
               "assets/images/kartudebit.jpg",
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Container(
-              margin: EdgeInsets.symmetric(horizontal: 5),
+              margin: const EdgeInsets.symmetric(horizontal: 5),
               child: ListView.separated(
                   scrollDirection: Axis.vertical,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return ListTile(
                         title: Text(
-                          "${transaksi[index].judul}",
-                          style: TextStyle(
+                          transaksi[index].judul,
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
                         subtitle: Text(
-                          "${transaksi[index].deskripsi}",
+                          transaksi[index].deskripsi,
                           style: TextStyle(
                               color: Colors.black.withOpacity(0.5)),
                         ),
                         trailing: Text(
-                          "${transaksi[index].nominal}",
-                          style: TextStyle(
+                          transaksi[index].nominal,
+                          style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 15),
                         ),
-                        leading: Container(
+                        leading: SizedBox(
                           width: 75,
                           child: ClipRRect(
                               borderRadius: BorderRadius.circular(80),
                               child: Image.asset(
-                                "${transaksi[index].gambar}",
+                                transaksi[index].gambar,
                                 // width: 100,
                                 errorBuilder: (BuildContext context,
                                     Object exception,
                                     StackTrace? stackTrace) {
-                                  return Icon(
+                                  return const Icon(
                                     Icons.broken_image,
                                     size: 55,
                                     color: Colors.grey,
@@ -105,13 +105,13 @@ class _MycardState extends State<Mycard> {
                         ));
                   },
                   separatorBuilder: (context, index) =>
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                   shrinkWrap: true,
                   itemCount: transaksi.length)),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           Container(
-           margin: EdgeInsets.symmetric(horizontal: 20),
-           child: Row(
+           margin: const EdgeInsets.symmetric(horizontal: 20),
+           child: const Row(
             children: [
               Text(
                 "Money Spending This Month",
@@ -123,10 +123,10 @@ class _MycardState extends State<Mycard> {
             ],
            )
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Container(
-            margin: EdgeInsets.only(right: 20),
-            child: Linechartsecond(),
+            margin: const EdgeInsets.only(right: 20),
+            child: const Linechartsecond(),
           )
         ])));
   }

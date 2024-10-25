@@ -27,7 +27,7 @@ class _GetxcontrollerpageState extends State<Getxcontrollerpage> {
           onDestinationSelected: (index) {
             _navController.updateIndex(index);
           },
-          destinations: [
+          destinations: const [
             NavigationDestination(icon: Icon(Icons.home), label: "Home"),
             NavigationDestination(icon: Icon(Icons.person), label: "My Cards"),
             NavigationDestination(icon: Icon(Icons.analytics), label: "Statistics"),
@@ -42,10 +42,10 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final List<Widget> screen = [
-    Homepage(),
-    Mycard(),
-    Statisticspage(),
-    Settingspage(),
+    const Homepage(),
+    const Mycard(),
+    const Statisticspage(),
+    const Settingspage(),
   ];
 
   void updateIndex(int index) {

@@ -3,7 +3,7 @@ import 'package:id_camp_final_project/model/lineChart.dart';
 import 'package:id_camp_final_project/model/transactionModel.dart';
 
 class Statisticspage extends StatefulWidget {
-  Statisticspage({super.key});
+  const Statisticspage({super.key});
 
   @override
   State<Statisticspage> createState() => _StatisticspageState();
@@ -27,19 +27,19 @@ class _StatisticspageState extends State<Statisticspage> {
     return Scaffold(
       backgroundColor: Colors.white,
         appBar: AppBar(
-          leading: Padding(
+          leading: const Padding(
             padding: EdgeInsets.only(left: 20),
             child: Icon(Icons.menu),
           ),
           actions: [
             Padding(
-              padding: EdgeInsets.only(right: 20),
+              padding: const EdgeInsets.only(right: 20),
               child: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.notification_add_outlined, size: 26,),
+                icon: const Icon(Icons.notification_add_outlined, size: 26,),
                         ),
             )],
-          title: Text(
+          title: const Text(
             "Statistics",
             style: TextStyle(color: Colors.black, fontSize: 25),
           ),
@@ -51,7 +51,7 @@ class _StatisticspageState extends State<Statisticspage> {
             child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 10),
+              margin: const EdgeInsets.only(top: 10),
               child: Column(children: [
                 Container(
                   child: Column(
@@ -62,10 +62,10 @@ class _StatisticspageState extends State<Statisticspage> {
                             fontSize: 20,
                             color: Colors.black.withOpacity(0.5)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Text(
+                      const Text(
                         "\$ 14852.99",
                         style: TextStyle(
                             fontSize: 26,
@@ -76,14 +76,14 @@ class _StatisticspageState extends State<Statisticspage> {
                   ),
                 ),
                 Container(
-                  child: Linechart(),
+                  child: const Linechart(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 20, right: 35),
-                  child: Row(
+                  margin: const EdgeInsets.only(left: 20, right: 35),
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -98,46 +98,46 @@ class _StatisticspageState extends State<Statisticspage> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5),
+                  margin: const EdgeInsets.symmetric(horizontal: 5),
                   child: ListView.separated(
                     scrollDirection: Axis.vertical,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       return ListTile(
                         title: Text(
-                          "${transaksi[index].judul}",
-                          style: TextStyle(
+                          transaksi[index].judul,
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ),
                         ),
                         subtitle: Text(
-                          "${transaksi[index].deskripsi}",
+                          transaksi[index].deskripsi,
                           style: TextStyle(
                               color: Colors.black.withOpacity(0.5)),
                         ),
                         trailing: Text(
-                          "${transaksi[index].nominal}",
-                          style: TextStyle(
+                          transaksi[index].nominal,
+                          style: const TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
                           ),
                         ),
-                        leading: Container(
+                        leading: SizedBox(
                           width: 75,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(80),
                             child: Image.asset(
-                              "${transaksi[index].gambar}",
+                              transaksi[index].gambar,
                               errorBuilder: (BuildContext context,
                                   Object exception,
                                   StackTrace? stackTrace) {
-                                return Icon(
+                                return const Icon(
                                   Icons.broken_image,
                                   size: 55,
                                   color: Colors.grey,
@@ -149,7 +149,7 @@ class _StatisticspageState extends State<Statisticspage> {
                       );
                     },
                     separatorBuilder: (context, index) =>
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                     shrinkWrap: true,
                     itemCount: transaksi.length,
                   ),

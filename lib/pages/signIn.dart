@@ -13,7 +13,7 @@ class _SigninpageState extends State<Signinpage> {
   var email = "Admin";
   var password = "Admin123";
   bool _passwordVisible = true;
-  bool _obscureText = true;
+  final bool _obscureText = true;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -28,7 +28,7 @@ class _SigninpageState extends State<Signinpage> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 255, 255, 255),
+            const Color.fromARGB(255, 255, 255, 255),
             Colors.blue.shade200
           ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
         ),
@@ -38,7 +38,7 @@ class _SigninpageState extends State<Signinpage> {
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+                  margin: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
@@ -49,66 +49,66 @@ class _SigninpageState extends State<Signinpage> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.arrow_back_ios_new),
+                    icon: const Icon(Icons.arrow_back_ios_new),
                   ),
                 )
               ]),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
-                margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                child: Text(
+                margin: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: const Text(
                   "Sign In",
                   style: TextStyle(
                     fontSize: 45,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 22),
+                padding: const EdgeInsets.only(left: 22),
                 child: Text("Email Adress",
                     style: TextStyle(
                         fontSize: 15, color: Colors.black.withOpacity(0.5))),
               ),
               Container(
-                  margin: EdgeInsets.fromLTRB(22, 0, 23, 0),
+                  margin: const EdgeInsets.fromLTRB(22, 0, 23, 0),
                   child: TextField(
                     controller: emailController,
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(10),
+                      contentPadding: const EdgeInsets.all(10),
                       hintText: email,
                       hintStyle:
                           TextStyle(color: Colors.black.withOpacity(0.5)),
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.email_outlined,
                       ),
                     ),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 22),
+                padding: const EdgeInsets.only(left: 22),
                 child: Text("Password",
                     style: TextStyle(
                         fontSize: 15, color: Colors.black.withOpacity(0.5))),
               ),
               Container(
-                  padding: EdgeInsets.fromLTRB(22, 0, 23, 0),
+                  padding: const EdgeInsets.fromLTRB(22, 0, 23, 0),
                   child: TextFormField(
                     controller: passwordController,
                     //_passwordVisible bernilai true
                     obscureText: _passwordVisible,
                     decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(10),
+                        contentPadding: const EdgeInsets.all(10),
                         hintText: password,
                         hintStyle:
                             TextStyle(color: Colors.black.withOpacity(0.5)),
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.lock_outline,
                         ),
                         suffixIcon: IconButton(
@@ -124,12 +124,12 @@ class _SigninpageState extends State<Signinpage> {
                               : Icons.remove_red_eye_outlined),
                         )),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 45,
               ),
               Container(
                 height: 70,
-                margin: EdgeInsets.symmetric(horizontal: 22),
+                margin: const EdgeInsets.symmetric(horizontal: 22),
                 child: ElevatedButton(
                   onPressed: () {
                     //validasi saat email dan password kosong
@@ -192,7 +192,7 @@ class _SigninpageState extends State<Signinpage> {
                     } else if (emailController.text == "Admin" &&
                         passwordController.text == "Admin123") {
                       Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => Getxcontrollerpage()));
+                          MaterialPageRoute(builder: (context) => const Getxcontrollerpage()));
                     } else {
                       Fluttertoast.showToast(
                           msg: "Invalid email or password",
@@ -209,18 +209,18 @@ class _SigninpageState extends State<Signinpage> {
                     }
                   },
                   style: ButtonStyle(
-                    shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                    shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30))),
                     backgroundColor:
-                        MaterialStatePropertyAll(Colors.blue.withOpacity(0.8)),
+                        WidgetStatePropertyAll(Colors.blue.withOpacity(0.8)),
                   ),
-                  child: Text(
+                  child: const Text(
                     "Sign In",
                     style: TextStyle(color: Colors.white, fontSize: 17),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -228,16 +228,16 @@ class _SigninpageState extends State<Signinpage> {
                 children: [
                   Container(
                       child: Row(children: [
-                    Text("Don't have an account?"),
+                    const Text("Don't have an account?"),
                     TextButton(
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) {
-                            return Signup();
+                            return const Signup();
                           },
                         ));
                       },
-                      child: Text("Sign Up"),
+                      child: const Text("Sign Up"),
                     )
                   ]))
                 ],
