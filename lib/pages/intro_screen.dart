@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:id_camp_final_project/model/intro_model.dart';
-import 'package:id_camp_final_project/pages/sign_in.dart';
+import 'package:id_camp_final_project/pages/login_page/sign_in.dart';
 
 class IntroScreenpage extends StatefulWidget {
   const IntroScreenpage({super.key});

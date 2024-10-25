@@ -35,7 +35,13 @@ class _StatisticspageState extends State<Statisticspage> {
             Padding(
               padding: const EdgeInsets.only(right: 20),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Fitur belum tersedia"),
+                    )
+                  );
+                },
                 icon: const Icon(Icons.notification_add_outlined, size: 26,),
                         ),
             )],

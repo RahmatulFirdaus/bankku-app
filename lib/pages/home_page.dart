@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:id_camp_final_project/model/transaction_model.dart';
+import 'package:id_camp_final_project/pages/value_home_page/search.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -77,7 +78,10 @@ class _HomepageState extends State<Homepage> {
                               color: Colors.grey.withOpacity(0.2),
                               shape: BoxShape.circle),
                           child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                  MaterialPageRoute(builder: (context) => const Searchhomepage()));
+                            },
                             icon: const Icon(Icons.search),
                           ),
                         ),

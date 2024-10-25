@@ -36,7 +36,13 @@ class _MycardState extends State<Mycard> {
             Padding(
               padding: const EdgeInsets.only(right: 20),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Fitur belum tersedia"),
+                    )
+                  );
+                },
                 icon: const Icon(
                   Icons.add,
                   size: 26,
