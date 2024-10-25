@@ -7,12 +7,12 @@ class PrivacypolicyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Terms and Conditions"),
+        title: Text("Terms and Conditions"),
         centerTitle: true,
       ),
       body: Container(
-        margin: const EdgeInsets.all(20),
-        child: const SingleChildScrollView(
+        margin: EdgeInsets.all(20),
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -27,9 +27,10 @@ class PrivacypolicyPage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                "1.2 Vivamus dapibus magna a luctus blandit. Mauris sed euismod tellus. Nulla rutrum venenatis erat, vel auctor sapien lobortis quis. Ut venenatis lectus a dui pulvinar ultricies. Duis rhoncus ac enim quis euismod. In sed tincidunt arcu. Vestibulum est velit, imperdiet non neque id, bibendum laoreet nisi. Pellentesque sit amet maximus mauris. Integer iaculis velit at luctus pulvinar. Nulla elementum eros at egestas viverra. Duis eu mi eget sapien convallis porttitor. Vestibulum cursus lacus urna, quis consectetur est aliquam ac. In elementum viverra est at sollicitudin. Vivamus ac odio ac dui vulputate ornare. Nunc non sagittis ligula. Suspendisse congue mollis libero non varius.",
+                "1.3 Vivamus dapibus magna a luctus blandit. Mauris sed euismod tellus. Nulla rutrum venenatis erat, vel auctor sapien lobortis quis. Ut venenatis lectus a dui pulvinar ultricies. Duis rhoncus ac enim quis euismod. In sed tincidunt arcu. Vestibulum est velit, imperdiet non neque id, bibendum laoreet nisi. Pellentesque sit amet maximus mauris. Integer iaculis velit at luctus pulvinar. Nulla elementum eros at egestas viverra. Duis eu mi eget sapien convallis porttitor. Vestibulum cursus lacus urna, quis consectetur est aliquam ac. In elementum viverra est at sollicitudin. Vivamus ac odio ac dui vulputate ornare. Nunc non sagittis ligula. Suspendisse congue mollis libero non varius.",
                 style: TextStyle(fontSize: 14, height: 1.5),
               ),
+              
             ],
           ),
         ),

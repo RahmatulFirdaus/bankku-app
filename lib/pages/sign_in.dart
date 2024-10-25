@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:id_camp_final_project/pages/getXController.dart';
-import 'package:id_camp_final_project/pages/signup.dart';
+import 'package:id_camp_final_project/pages/get_x_controller.dart';
+import 'package:id_camp_final_project/pages/sign_up.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 class Signinpage extends StatefulWidget {
   const Signinpage({super.key});
@@ -13,12 +13,12 @@ class _SigninpageState extends State<Signinpage> {
   var email = "Admin";
   var password = "Admin123";
   bool _passwordVisible = true;
-  final bool _obscureText = true;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   @override
   void initState() {
+    super.initState();
     _passwordVisible;
   }
 
