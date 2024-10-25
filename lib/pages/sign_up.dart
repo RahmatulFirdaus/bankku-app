@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:id_camp_final_project/pages/getXController.dart';
-import 'package:id_camp_final_project/pages/signIn.dart';
+import 'package:id_camp_final_project/pages/get_x_controller.dart';
+import 'package:id_camp_final_project/pages/sign_in.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -186,20 +186,19 @@ class _SignupState extends State<Signup> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                      child: Row(children: [
-                    const Text("Don't have an account?"),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(
-                          builder: (context) {
-                            return const Signinpage();
-                          },
-                        ));
+                  Row(children: [
+                                      const Text("Don't have an account?"),
+                                      TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const Signinpage();
                       },
-                      child: const Text("Sign In"),
-                    )
-                  ]))
+                    ));
+                  },
+                  child: const Text("Sign In"),
+                                      )
+                                    ])
                 ],
               )
             ],

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:id_camp_final_project/model/lineChart.dart';
-import 'package:id_camp_final_project/model/transactionModel.dart';
+import 'package:id_camp_final_project/model/line_chart.dart';
+import 'package:id_camp_final_project/model/transaction_model.dart';
 
 class Mycard extends StatefulWidget {
   const Mycard({super.key});

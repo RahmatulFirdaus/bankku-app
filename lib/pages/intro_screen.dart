@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:id_camp_final_project/model/introModel.dart';
-import 'package:id_camp_final_project/pages/signIn.dart';
+import 'package:id_camp_final_project/model/intro_model.dart';
+import 'package:id_camp_final_project/pages/sign_in.dart';
 
 class IntroScreenpage extends StatefulWidget {
   const IntroScreenpage({super.key});
@@ -53,36 +53,34 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
           },
           controller: pageContoller,
           itemBuilder: (context, index) {
-            return Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Container(
-                      margin: const EdgeInsets.only(top: 130),
-                      height: 300,
-                      child: Image.asset(
-                        introModel[index].linkGambar,
-                      )),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),
-                    child: Text(
-                      introModel[index].judul,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 28),
-                    ),
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                    margin: const EdgeInsets.only(top: 130),
+                    height: 300,
+                    child: Image.asset(
+                      introModel[index].linkGambar,
+                    )),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),
+                  child: Text(
+                    introModel[index].judul,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 28),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Text(
-                      introModel[index].deskripsi,
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(color: Colors.black.withOpacity(0.6)),
-                    ),
-                  )
-                ],
-              ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: Text(
+                    introModel[index].deskripsi,
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(color: Colors.black.withOpacity(0.6)),
+                  ),
+                )
+              ],
             );
           },
           itemCount: introModel.length,

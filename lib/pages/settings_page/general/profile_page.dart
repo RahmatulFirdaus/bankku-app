@@ -14,6 +14,9 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         title: const Text('Profile'),
         centerTitle: true,
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.mode_edit_outline))
+        ],
       ),
       body: const Center(
         child: Text('Profile Page'),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:id_camp_final_project/pages/home.dart';
-import 'package:id_camp_final_project/pages/myCard.dart';
-import 'package:id_camp_final_project/pages/settings.dart';
+import 'package:id_camp_final_project/pages/home_page.dart';
+import 'package:id_camp_final_project/pages/my_card_page.dart';
+import 'package:id_camp_final_project/pages/settings_page.dart';
 import 'package:id_camp_final_project/pages/statistics.dart';
 
 class Getxcontrollerpage extends StatefulWidget {

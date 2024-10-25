@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:id_camp_final_project/model/lineChart.dart';
-import 'package:id_camp_final_project/model/transactionModel.dart';
+import 'package:id_camp_final_project/model/line_chart.dart';
+import 'package:id_camp_final_project/model/transaction_model.dart';
 
 class Statisticspage extends StatefulWidget {
   const Statisticspage({super.key});
@@ -53,31 +53,27 @@ class _StatisticspageState extends State<Statisticspage> {
             Container(
               margin: const EdgeInsets.only(top: 10),
               child: Column(children: [
-                Container(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Current Balance",
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black.withOpacity(0.5)),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const Text(
-                        "\$ 14852.99",
-                        style: TextStyle(
-                            fontSize: 26,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
+                Column(
+                  children: [
+                    Text(
+                      "Current Balance",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black.withOpacity(0.5)),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Text(
+                      "\$ 14852.99",
+                      style: TextStyle(
+                          fontSize: 26,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    )
+                  ],
                 ),
-                Container(
-                  child: const Linechart(),
-                ),
+                const Linechart(),
                 const SizedBox(
                   height: 20,
                 ),

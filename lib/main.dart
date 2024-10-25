@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:id_camp_final_project/pages/getXController.dart';
+import 'package:id_camp_final_project/pages/get_x_controller.dart';
+import 'package:id_camp_final_project/splash_screen/opening.dart';
 
 
 void main() {
@@ -23,7 +24,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme()
       ),
-      home: const Getxcontrollerpage(),
+      home: const Openingpage(),
     );
   }
 }

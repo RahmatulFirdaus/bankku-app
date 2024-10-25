@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:id_camp_final_project/model/settingsModel.dart';
+import 'package:id_camp_final_project/model/settings_model.dart';
 import 'package:id_camp_final_project/pages/settings_page/general/contact_page.dart';
 import 'package:id_camp_final_project/pages/settings_page/general/language_page.dart';
 import 'package:id_camp_final_project/pages/settings_page/general/profile_page.dart';
-import 'package:id_camp_final_project/pages/settings_page/security/changePassword_page.dart';
-import 'package:id_camp_final_project/pages/settings_page/security/privacyPolicy_page.dart';
+import 'package:id_camp_final_project/pages/settings_page/security/change_password_page.dart';
+import 'package:id_camp_final_project/pages/settings_page/security/privacy_policy_page.dart';
 
 class Settingspage extends StatefulWidget {
   const Settingspage({super.key});

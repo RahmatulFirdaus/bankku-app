@@ -226,20 +226,19 @@ class _SigninpageState extends State<Signinpage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                      child: Row(children: [
-                    const Text("Don't have an account?"),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return const Signup();
-                          },
-                        ));
+                  Row(children: [
+                                      const Text("Don't have an account?"),
+                                      TextButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const Signup();
                       },
-                      child: const Text("Sign Up"),
-                    )
-                  ]))
+                    ));
+                  },
+                  child: const Text("Sign Up"),
+                                      )
+                                    ])
                 ],
               )
             ],

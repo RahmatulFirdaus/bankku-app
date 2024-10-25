@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:id_camp_final_project/model/transactionModel.dart';
+import 'package:id_camp_final_project/model/transaction_model.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -35,38 +35,37 @@ class _HomepageState extends State<Homepage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                    child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: Image.asset(
+                      "assets/images/lunatif.png",
+                      width: 55,
+                    )),
+                const SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ClipRRect(
-                        borderRadius: BorderRadius.circular(50),
-                        child: Image.asset(
-                          "assets/images/lunatif.png",
-                          width: 55,
-                        )),
-                    const SizedBox(
-                      width: 10,
+                    Text(
+                      "Welcome Back",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black.withOpacity(0.5)),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Welcome Back",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black.withOpacity(0.5)),
-                        ),
-                        const Text(
-                          "Rahmatul Firdaus",
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        )
-                      ],
+                    const Text(
+                      "Rahmatul Firdaus",
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
                     )
                   ],
-                )),
+                )
+                                  ],
+                                ),
                 const SizedBox(
                   width: 50,
                 ),
@@ -96,124 +95,122 @@ class _HomepageState extends State<Homepage> {
           const SizedBox(
             height: 25,
           ),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    Container(
-                      width: 65,
-                      height: 65,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.2),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.arrow_upward_outlined,
-                              size: 30,
-                            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    width: 65,
+                    height: 65,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.2),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.arrow_upward_outlined,
+                            size: 30,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text("Sent")
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    width: 65,
+                    height: 65,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.2),
+                      shape: BoxShape.circle,
                     ),
-                    const Text("Sent")
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 65,
-                      height: 65,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.2),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.arrow_downward_outlined,
-                              size: 30,
-                            ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.arrow_downward_outlined,
+                            size: 30,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text("Receive")
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    width: 65,
+                    height: 65,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.2),
+                      shape: BoxShape.circle,
                     ),
-                    const Text("Receive")
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 65,
-                      height: 65,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.2),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.attach_money,
-                              size: 30,
-                            ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.attach_money,
+                            size: 30,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text("Loan")
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    width: 65,
+                    height: 65,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.2),
+                      shape: BoxShape.circle,
                     ),
-                    const Text("Loan")
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 65,
-                      height: 65,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.2),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.cloud_upload_outlined,
-                              size: 30,
-                            ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.cloud_upload_outlined,
+                            size: 30,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text("Top Up")
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text("Top Up")
+                ],
+              ),
+            ],
           ),
           const SizedBox(
             height: 30,
