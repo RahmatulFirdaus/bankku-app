@@ -14,7 +14,9 @@ class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          backgroundColor: Colors.white,
           title: const Text('Edit Profile'),
           centerTitle: true,
         ),
@@ -25,7 +27,7 @@ class EditProfilePage extends StatelessWidget {
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: Image.asset(
-                    "assets/images/lunatif.png",
+                    "assets/images/profile.jpg",
                     width: 150,
                   )),
             ),

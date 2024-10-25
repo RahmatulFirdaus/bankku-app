@@ -43,7 +43,7 @@ class _HomepageState extends State<Homepage> {
                             ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
-                                  "assets/images/lunatif.png",
+                                  "assets/images/profile.jpg",
                                   width: 55,
                                 )),
                             const SizedBox(

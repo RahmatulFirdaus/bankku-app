@@ -25,7 +25,9 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         appBar: AppBar(
+          backgroundColor: Colors.white,
           title: const Text('Profile'),
           centerTitle: true,
           actions: [
@@ -49,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ClipRRect(
                       borderRadius: BorderRadius.circular(50),
                       child: Image.asset(
-                        "assets/images/lunatif.png",
+                        "assets/images/profile.jpg",
                         width: 70,
                       )),
                   const SizedBox(
