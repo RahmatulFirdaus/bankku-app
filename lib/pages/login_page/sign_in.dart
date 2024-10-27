@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:id_camp_final_project/pages/get_x_controller.dart';
 import 'package:id_camp_final_project/pages/login_page/sign_up.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 class Signinpage extends StatefulWidget {
   const Signinpage({super.key});
 
@@ -38,7 +39,8 @@ class _SigninpageState extends State<Signinpage> {
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Container(
-                  margin: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
@@ -191,8 +193,11 @@ class _SigninpageState extends State<Signinpage> {
                           );
                     } else if (emailController.text == "Admin" &&
                         passwordController.text == "Admin123") {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => const Getxcontrollerpage()));
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const Getxcontrollerpage()));
                     } else {
                       Fluttertoast.showToast(
                           msg: "Invalid email or password",
@@ -227,18 +232,18 @@ class _SigninpageState extends State<Signinpage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(children: [
-                                      const Text("Don't have an account?"),
-                                      TextButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return const Signup();
+                    const Text("Don't have an account?"),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const Signup();
+                          },
+                        ));
                       },
-                    ));
-                  },
-                  child: const Text("Sign Up"),
-                                      )
-                                    ])
+                      child: const Text("Sign Up"),
+                    )
+                  ])
                 ],
               )
             ],

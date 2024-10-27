@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:id_camp_final_project/model/transaction_model.dart';
+import 'package:id_camp_final_project/pages/value_home_page/receieve.dart';
 import 'package:id_camp_final_project/pages/value_home_page/search.dart';
+import 'package:id_camp_final_project/pages/value_home_page/sent.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -116,7 +118,11 @@ class _HomepageState extends State<Homepage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context) => const SentPage()),
+                                    );
+                                  },
                                   icon: const Icon(
                                     Icons.arrow_upward_outlined,
                                     size: 30,
@@ -144,7 +150,11 @@ class _HomepageState extends State<Homepage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context) => const ReceievePage()),
+                                    );
+                                  },
                                   icon: const Icon(
                                     Icons.arrow_downward_outlined,
                                     size: 30,
