@@ -45,7 +45,7 @@ class NavigationController extends GetxController {
     const Homepage(),
     const Mycard(),
     const Statisticspage(),
-    const Settingspage(),
+    const SettingsPage(),
   ];
 
   void updateIndex(int index) {

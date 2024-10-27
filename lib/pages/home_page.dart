@@ -81,8 +81,9 @@ class _HomepageState extends State<Homepage> {
                               shape: BoxShape.circle),
                           child: IconButton(
                             onPressed: () {
-                              Navigator.of(context).push(
-                                  MaterialPageRoute(builder: (context) => const Searchhomepage()));
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      const Searchhomepage()));
                             },
                             icon: const Icon(Icons.search),
                           ),
@@ -120,7 +121,9 @@ class _HomepageState extends State<Homepage> {
                                 IconButton(
                                   onPressed: () {
                                     Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context) => const SentPage()),
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const SentPage()),
                                     );
                                   },
                                   icon: const Icon(
@@ -152,7 +155,8 @@ class _HomepageState extends State<Homepage> {
                                 IconButton(
                                   onPressed: () {
                                     Navigator.of(context).push(
-                                      MaterialPageRoute(builder: (context) => const ReceievePage()),
+                                      MaterialPageRoute(
+                                          builder: (context) => ReceivePage()),
                                     );
                                   },
                                   icon: const Icon(
@@ -182,7 +186,13 @@ class _HomepageState extends State<Homepage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text("Fitur belum tersedia"),
+                                      ),
+                                    );
+                                  },
                                   icon: const Icon(
                                     Icons.attach_money,
                                     size: 30,
@@ -210,7 +220,13 @@ class _HomepageState extends State<Homepage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text("Fitur belum tersedia"),
+                                      ),
+                                    );
+                                  },
                                   icon: const Icon(
                                     Icons.cloud_upload_outlined,
                                     size: 30,

@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme()
       ),
-      home: const Getxcontrollerpage(),
+      home: const Openingpage(),
     );
   }
 }
