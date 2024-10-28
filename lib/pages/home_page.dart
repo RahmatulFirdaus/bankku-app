@@ -247,8 +247,8 @@ class _HomepageState extends State<Homepage> {
                     height: 30,
                   ),
                   Container(
-                    margin: const EdgeInsets.only(left: 20, right: 35),
-                    child: const Row(
+                    margin: const EdgeInsets.only(left: 20, right: 20),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -256,9 +256,18 @@ class _HomepageState extends State<Homepage> {
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
-                        Text(
-                          "See All",
-                          style: TextStyle(color: Colors.blue),
+                        GestureDetector(
+                          onTap: (){
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text("Fitur belum tersedia"),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "See All",
+                            style: TextStyle(color: Colors.blue),
+                          ),
                         )
                       ],
                     ),

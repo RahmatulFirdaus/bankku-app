@@ -24,8 +24,6 @@ class _StatisticspageState extends State<Statisticspage> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -38,11 +36,9 @@ class _StatisticspageState extends State<Statisticspage> {
             padding: const EdgeInsets.only(right: 20),
             child: IconButton(
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text("Fitur belum tersedia"),
-                  )
-                );
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text("Fitur belum tersedia"),
+                ));
               },
               icon: const Icon(Icons.notification_add_outlined, size: 26),
             ),
@@ -58,147 +54,48 @@ class _StatisticspageState extends State<Statisticspage> {
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          bool isWideScreen = constraints.maxWidth > 800;
-          return SingleChildScrollView(
-            child: Center(
+          if (constraints.maxWidth > 600) {
+            return Center(
               child: Container(
-                width: isWideScreen ? 800 : screenWidth * 0.9,
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: isWideScreen
-                    ? Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                width: 700, 
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Text(
-                                  "Current Balance",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black.withOpacity(0.5),
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                                const Text(
-                                  "\$ 14852.99",
-                                  style: TextStyle(
-                                    fontSize: 26,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const SizedBox(height: 20),
-                                const Linechart(),
-                              ],
+                          Text(
+                            "Current Balance",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black.withOpacity(0.5),
                             ),
                           ),
-                          const SizedBox(width: 20),
-                          // Right side: Transaction History
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const Text(
-                                      "Transaction History",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        // Implement 'See All' functionality
-                                      },
-                                      child: const Text(
-                                        "See All",
-                                        style: TextStyle(color: Colors.blue),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 20),
-                                ListView.separated(
-                                  scrollDirection: Axis.vertical,
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemCount: transaksi.length,
-                                  itemBuilder: (context, index) {
-                                    return ListTile(
-                                      title: Text(
-                                        transaksi[index].judul,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                        ),
-                                      ),
-                                      subtitle: Text(
-                                        transaksi[index].deskripsi,
-                                        style: TextStyle(
-                                          color: Colors.black.withOpacity(0.5),
-                                        ),
-                                      ),
-                                      trailing: Text(
-                                        transaksi[index].nominal,
-                                        style: const TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                      leading: SizedBox(
-                                        width: 75,
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(80),
-                                          child: Image.asset(
-                                            transaksi[index].gambar,
-                                            errorBuilder: (context, error, stackTrace) {
-                                              return const Icon(
-                                                Icons.broken_image,
-                                                size: 55,
-                                                color: Colors.grey,
-                                              );
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  separatorBuilder: (context, index) =>
-                                      const SizedBox(height: 10),
-                                ),
-                              ],
+                          const SizedBox(height: 10),
+                          const Text(
+                            "\$ 14852.99",
+                            style: TextStyle(
+                              fontSize: 26,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
                             ),
-                          ),
-                        ],
-                      )
-                    : Column(
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                "Current Balance",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              const Text(
-                                "\$ 14852.99",
-                                style: TextStyle(
-                                  fontSize: 26,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: 20),
-                              const Linechart(),
-                            ],
                           ),
                           const SizedBox(height: 20),
+                          Container(
+                            width: 600,
+                            height: 300,
+                            child: const Linechart(),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -211,7 +108,10 @@ class _StatisticspageState extends State<Statisticspage> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  // Implement 'See All' functionality
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text("Fitur belum tersedia")),
+                                  );
                                 },
                                 child: const Text(
                                   "See All",
@@ -250,15 +150,18 @@ class _StatisticspageState extends State<Statisticspage> {
                                   ),
                                 ),
                                 leading: SizedBox(
-                                  width: 75,
+                                  width: 50,
+                                  height: 50,
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(80),
+                                    borderRadius: BorderRadius.circular(25),
                                     child: Image.asset(
                                       transaksi[index].gambar,
-                                      errorBuilder: (context, error, stackTrace) {
+                                      fit: BoxFit.cover,
+                                      errorBuilder:
+                                          (context, error, stackTrace) {
                                         return const Icon(
                                           Icons.broken_image,
-                                          size: 55,
+                                          size: 30,
                                           color: Colors.grey,
                                         );
                                       },
@@ -272,9 +175,122 @@ class _StatisticspageState extends State<Statisticspage> {
                           ),
                         ],
                       ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          );
+            );
+          } else {
+            return SingleChildScrollView(
+              child: Center(
+                child: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Current Balance",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black.withOpacity(0.5),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      const Text(
+                        "\$ 14852.99",
+                        style: TextStyle(
+                          fontSize: 26,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Linechart(),
+                      const SizedBox(height: 20),
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "Transaction History",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text("Fitur belum tersedia")),
+                                );
+                              },
+                              child: const Text(
+                                "See All",
+                                style: TextStyle(color: Colors.blue),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      ListView.separated(
+                        scrollDirection: Axis.vertical,
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: transaksi.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(
+                              transaksi[index].judul,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                            subtitle: Text(
+                              transaksi[index].deskripsi,
+                              style: TextStyle(
+                                color: Colors.black.withOpacity(0.5),
+                              ),
+                            ),
+                            trailing: Text(
+                              transaksi[index].nominal,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                            leading: SizedBox(
+                              width: 50,
+                              height: 50,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(25),
+                                child: Image.asset(
+                                  transaksi[index].gambar,
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return const Icon(
+                                      Icons.broken_image,
+                                      size: 30,
+                                      color: Colors.grey,
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(height: 10),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }
         },
       ),
     );
