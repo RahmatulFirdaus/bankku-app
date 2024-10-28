@@ -58,9 +58,7 @@ class _StatisticspageState extends State<Statisticspage> {
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          // Check if the screen is wide enough to split the layout into two columns
           bool isWideScreen = constraints.maxWidth > 800;
-
           return SingleChildScrollView(
             child: Center(
               child: Container(
@@ -70,7 +68,6 @@ class _StatisticspageState extends State<Statisticspage> {
                     ? Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Left side: Current Balance and Line Chart
                           Expanded(
                             child: Column(
                               children: [
@@ -179,7 +176,6 @@ class _StatisticspageState extends State<Statisticspage> {
                       )
                     : Column(
                         children: [
-                          // Display everything in a single column for smaller screens
                           Column(
                             children: [
                               Text(
