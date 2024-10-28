@@ -5,7 +5,6 @@ import 'package:id_camp_final_project/pages/intro_screen.dart';
 import 'package:id_camp_final_project/pages/login_page/sign_in.dart';
 import 'package:id_camp_final_project/splash_screen/opening.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -23,9 +22,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Banking App",
-      theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme()
-      ),
+      theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
       home: const IntroScreenpage(),
     );
   }
