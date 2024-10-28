@@ -37,12 +37,11 @@ class _SigninpageState extends State<Signinpage> {
             ),
             child: SafeArea(
               child: Center(
-                // Tambahkan Center
                 child: Container(
                   constraints: const BoxConstraints(
                       maxWidth: 500), // untuk membatasi lebar maksimal
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: _mainValue(context),
+                  child: SafeArea(child: _mainValue(context)),
                 ),
               ),
             ),
