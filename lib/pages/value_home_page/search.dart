@@ -48,69 +48,71 @@ class _SearchhomepageState extends State<Searchhomepage> {
         centerTitle: true,
         title: const Text("Search"),
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
-            child: TextField(
-              controller: searchController,
-              onChanged: searchTransaksi,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
+              child: TextField(
+                controller: searchController,
+                onChanged: searchTransaksi,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  hintText: "Search",
+                  prefixIcon: Icon(Icons.search),
                 ),
-                hintText: "Search",
-                prefixIcon: Icon(Icons.search),
               ),
             ),
-          ),
-          Container(
-              margin: const EdgeInsets.only(top: 20),
-              child: ListView.separated(
-                  scrollDirection: Axis.vertical,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                        title: Text(
-                          search[index].judul,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
-                        ),
-                        subtitle: Text(
-                          search[index].deskripsi,
-                          style:
-                              TextStyle(color: Colors.black.withOpacity(0.5)),
-                        ),
-                        trailing: Text(
-                          search[index].nominal,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        ),
-                        leading: SizedBox(
-                          width: 75,
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(80),
-                              child: Image.asset(
-                                search[index].gambar,
-                                // width: 100,
-                                errorBuilder: (BuildContext context,
-                                    Object exception, StackTrace? stackTrace) {
-                                  return const Icon(
-                                    Icons.broken_image,
-                                    size: 55,
-                                    color: Colors.grey,
-                                  );
-                                },
-                              )),
-                        ));
-                  },
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(height: 10),
-                  shrinkWrap: true,
-                  itemCount: search.length))
-        ],
+            Container(
+                margin: const EdgeInsets.only(top: 20),
+                child: ListView.separated(
+                    scrollDirection: Axis.vertical,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                          title: Text(
+                            search[index].judul,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18),
+                          ),
+                          subtitle: Text(
+                            search[index].deskripsi,
+                            style:
+                                TextStyle(color: Colors.black.withOpacity(0.5)),
+                          ),
+                          trailing: Text(
+                            search[index].nominal,
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                          leading: SizedBox(
+                            width: 75,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(80),
+                                child: Image.asset(
+                                  search[index].gambar,
+                                  // width: 100,
+                                  errorBuilder: (BuildContext context,
+                                      Object exception, StackTrace? stackTrace) {
+                                    return const Icon(
+                                      Icons.broken_image,
+                                      size: 55,
+                                      color: Colors.grey,
+                                    );
+                                  },
+                                )),
+                          ));
+                    },
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(height: 10),
+                    shrinkWrap: true,
+                    itemCount: search.length))
+          ],
+        ),
       ),
     );
   }
