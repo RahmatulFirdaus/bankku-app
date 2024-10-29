@@ -4,10 +4,11 @@ Proyek ini dibuat oleh Rahmatul Firdaus
 
 ## Tampilan Android
 
+<img src="https://github.com/user-attachments/assets/786880b8-87af-42bb-8619-679ba959ff7b" alt="Screenshot_1730182480" width="250"/>
 <img src="https://github.com/user-attachments/assets/3ce6c12e-6a01-4d15-9c57-26c37f6f9bfc" alt="Screenshot_1730182484" width="250"/>
 <img src="https://github.com/user-attachments/assets/53315bbf-1190-4286-b0a7-a8b9bd38f93e" alt="Screenshot_1730182488" width="250"/>
-<img src="https://github.com/user-attachments/assets/5662c2e6-02ae-4fee-9c0c-9e68a24d96a6" alt="Screenshot_1730182490" width="250"/>
 <img src="https://github.com/user-attachments/assets/0e85798d-7d1d-42ab-a840-66a4b3ed5c3c" alt="Screenshot_1730182495" width="250"/>
+<img src="https://github.com/user-attachments/assets/e8568bcb-592a-40c9-a1cf-cb09e9263a7d" alt="Screenshot_1730183402" width="250"/>
 <img src="https://github.com/user-attachments/assets/34fa914b-2380-4fa6-9896-29f941a104e7" alt="Screenshot_1730183046" width="250"/>
 <img src="https://github.com/user-attachments/assets/7e0057b3-a359-489b-9301-ed655bef9994" alt="Screenshot_1730183051" width="250"/>
 <img src="https://github.com/user-attachments/assets/0fef7da5-1218-45c5-a4d3-fd4f6e93fb82" alt="Screenshot_1730183058" width="250"/>
@@ -24,7 +25,7 @@ Proyek ini dibuat oleh Rahmatul Firdaus
 <img src="https://github.com/user-attachments/assets/b71d0682-6b45-4f09-b22d-3b3af05fe7db" alt="Screenshot_1730183126" width="250"/>
 <img src="https://github.com/user-attachments/assets/b7d3c11c-ee43-4ce5-9aef-fff4803ba299" alt="Screenshot_1730183132" width="250"/>
 <img src="https://github.com/user-attachments/assets/e5b1376a-bf58-4b03-8031-25c35b637ee4" alt="Screenshot_1730183137" width="250"/>
-<img src="https://github.com/user-attachments/assets/e8568bcb-592a-40c9-a1cf-cb09e9263a7d" alt="Screenshot_1730183402" width="250"/>
+
 
 
 ## Tampilan Tablet
