@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class GetGeneral{
   String name;
   IconData icon;
