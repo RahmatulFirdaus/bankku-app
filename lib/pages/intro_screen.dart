@@ -37,10 +37,10 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
                 Colors.blue.shade200
               ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
             ),
-            //metod ini digunakan untuk membuat layout secara ditengah
+            //metode ini digunakan untuk membuat layout secara ditengah
             child: Align(
               alignment: Alignment.center,
-              //sama seperti container constraint
+              //sama seperti container constraint 
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 600),
                 child: Column(

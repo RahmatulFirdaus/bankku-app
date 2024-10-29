@@ -13,14 +13,14 @@ class Signinpage extends StatefulWidget {
 class _SigninpageState extends State<Signinpage> {
   var email = "Admin";
   var password = "Admin123";
-  bool _passwordVisible = true;
+  bool _visiblePassword = true;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _passwordVisible;
+    _visiblePassword;
   }
 
   @override
@@ -62,7 +62,6 @@ class _SigninpageState extends State<Signinpage> {
       }),
     );
   }
-
   SingleChildScrollView _mainValue(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
@@ -132,8 +131,8 @@ class _SigninpageState extends State<Signinpage> {
               padding: const EdgeInsets.fromLTRB(22, 0, 23, 0),
               child: TextFormField(
                 controller: passwordController,
-                //_passwordVisible bernilai true
-                obscureText: _passwordVisible,
+                //_visiblePassword bernilai true
+                obscureText: _visiblePassword,
                 decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(10),
                     hintText: password,
@@ -145,11 +144,11 @@ class _SigninpageState extends State<Signinpage> {
                       onPressed: () {
                         setState(() {
                           //ketika di klik, maka nilai variabel berubah dari true ke false
-                          _passwordVisible = !_passwordVisible;
+                          _visiblePassword = !_visiblePassword;
                         });
                       },
-                      //jika passwordVisible bernilai true maka icon yang muncul adalah visibility_off_outlined, jika false maka icon yang muncul adalah remove_red_eye_outlined
-                      icon: Icon(_passwordVisible
+                      //jika visiblePassword bernilai true maka icon yang muncul adalah visibility_off_outlined, jika false maka icon yang muncul adalah remove_red_eye_outlined
+                      icon: Icon(_visiblePassword
                           ? Icons.visibility_off_outlined
                           : Icons.remove_red_eye_outlined),
                     )),
