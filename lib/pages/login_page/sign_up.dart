@@ -15,11 +15,13 @@ class _SignupState extends State<Signup> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
+  bool _passwordVisible = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.transparent,
+        // resizeToAvoidBottomInset: false,
         body: LayoutBuilder(builder: (context, constraints) {
           if (constraints.maxWidth > 600) {
             return Container(
@@ -40,6 +42,7 @@ class _SignupState extends State<Signup> {
             );
           } else {
             return Container(
+                height: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [
                     const Color.fromARGB(255, 255, 255, 255),
@@ -155,24 +158,35 @@ class _SignupState extends State<Signup> {
                     fontSize: 15, color: Colors.black.withOpacity(0.5))),
           ),
           Container(
-              padding: const EdgeInsets.fromLTRB(22, 0, 23, 0),
-              child: TextField(
-                controller: password,
-                decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.all(10),
-                    prefixIcon: const Icon(
-                      Icons.lock_outline,
-                    ),
-                    suffixIcon: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.remove_red_eye_outlined),
-                    )),
-              )),
+            padding: const EdgeInsets.fromLTRB(22, 0, 23, 0),
+            child: TextFormField(
+              controller: password,
+              //_passwordVisible bernilai true
+              obscureText: _passwordVisible,
+              decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(10),
+                  hintStyle: TextStyle(color: Colors.black.withOpacity(0.5)),
+                  prefixIcon: const Icon(
+                    Icons.lock_outline,
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        //ketika di klik, maka nilai variabel berubah dari true ke false
+                        _passwordVisible = !_passwordVisible;
+                      });
+                    },
+                    //jika passwordVisible bernilai true maka icon yang muncul adalah visibility_off_outlined, jika false maka icon yang muncul adalah remove_red_eye_outlined
+                    icon: Icon(_passwordVisible
+                        ? Icons.visibility_off_outlined
+                        : Icons.remove_red_eye_outlined),
+                  )),
+            )),
           const SizedBox(
             height: 45,
           ),
           Container(
-            height: 70,
+            height: 50,
             margin: const EdgeInsets.symmetric(horizontal: 22),
             child: ElevatedButton(
               onPressed: () {
@@ -228,7 +242,7 @@ class _SignupState extends State<Signup> {
                 )
               ])
             ],
-          )
+          ), 
         ],
       ),
     );

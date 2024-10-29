@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: "Banking App",
       theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
-      home: const Getxcontrollerpage(),
+      home: const Openingpage(),
     );
   }
 }
