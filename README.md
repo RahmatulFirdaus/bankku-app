@@ -30,8 +30,8 @@ Proyek ini dibuat oleh Rahmatul Firdaus
 
 ## Tampilan Tablet
 
+<img src="https://github.com/user-attachments/assets/aaf18bdf-5c32-4c80-8417-ab7d20b10efc" alt="Screenshot_1730183827" width="250"/>
 <img src="https://github.com/user-attachments/assets/0fb223f3-1de5-4322-9b09-49b56284d31f" alt="Screenshot_1730183830" width="250"/>
-<img src="https://github.com/user-attachments/assets/138da62e-caf0-495a-b5b7-c79c9fea7f84" alt="Screenshot_1730183834" width="250"/>
 <img src="https://github.com/user-attachments/assets/90875e00-4b55-4375-a18d-e6821ead07f0" alt="Screenshot_1730183836" width="250"/>
 <img src="https://github.com/user-attachments/assets/011c1211-27ca-40e9-9912-c3ba28db133b" alt="Screenshot_1730183841" width="250"/>
 <img src="https://github.com/user-attachments/assets/b2a9663b-4fa8-4a0a-8dd7-508f10f3336c" alt="Screenshot_1730183849" width="250"/>
@@ -49,7 +49,6 @@ Proyek ini dibuat oleh Rahmatul Firdaus
 <img src="https://github.com/user-attachments/assets/a6694ed2-1013-4741-880a-74a556a8c527" alt="Screenshot_1730184002" width="250"/>
 <img src="https://github.com/user-attachments/assets/cf5fe9f1-7b53-41d6-aacf-2f0a850e5f1f" alt="Screenshot_1730184007" width="250"/>
 <img src="https://github.com/user-attachments/assets/98b8885a-f40d-4f40-8d98-dc6849ef6652" alt="Screenshot_1730184011" width="250"/>
-<img src="https://github.com/user-attachments/assets/aaf18bdf-5c32-4c80-8417-ab7d20b10efc" alt="Screenshot_1730183827" width="250"/>
 
 
 ## Tampilan Website
