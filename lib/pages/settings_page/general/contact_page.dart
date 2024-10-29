@@ -56,7 +56,6 @@ class ContactPage extends StatelessWidget {
               ),
             ),
           ),
-          // Main Content
           SingleChildScrollView(
             child: SafeArea(
               child: Column(

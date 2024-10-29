@@ -21,7 +21,6 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.transparent,
-        // resizeToAvoidBottomInset: false,
         body: LayoutBuilder(builder: (context, constraints) {
           if (constraints.maxWidth > 600) {
             return Container(

@@ -95,7 +95,6 @@ class _SearchhomepageState extends State<Searchhomepage> {
                                 borderRadius: BorderRadius.circular(80),
                                 child: Image.asset(
                                   search[index].gambar,
-                                  // width: 100,
                                   errorBuilder: (BuildContext context,
                                       Object exception, StackTrace? stackTrace) {
                                     return const Icon(

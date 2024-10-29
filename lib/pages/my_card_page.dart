@@ -103,7 +103,6 @@ class _MycardState extends State<Mycard> {
                                 borderRadius: BorderRadius.circular(80),
                                 child: Image.asset(
                                   transaksi[index].gambar,
-                                  // width: 100,
                                   errorBuilder: (BuildContext context,
                                       Object exception,
                                       StackTrace? stackTrace) {
@@ -194,7 +193,6 @@ class _MycardState extends State<Mycard> {
                                                   BorderRadius.circular(80),
                                               child: Image.asset(
                                                 transaksi[index].gambar,
-                                                // width: 100,
                                                 errorBuilder: (BuildContext
                                                         context,
                                                     Object exception,

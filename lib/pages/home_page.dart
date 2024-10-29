@@ -44,7 +44,6 @@ class _HomepageState extends State<Homepage> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Container(
-                      // color: Colors.blue,
                       margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -322,7 +321,6 @@ class _HomepageState extends State<Homepage> {
                                             BorderRadius.circular(80),
                                         child: Image.asset(
                                           transaksi[index].gambar,
-                                          // width: 100,
                                           errorBuilder: (BuildContext context,
                                               Object exception,
                                               StackTrace? stackTrace) {
@@ -351,10 +349,8 @@ class _HomepageState extends State<Homepage> {
                 child: Container(
                   width: 1000,
                   child: Column(
-                      // crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Container(
-                          // color: Colors.blue,
                           margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -653,7 +649,6 @@ class _HomepageState extends State<Homepage> {
                                                       BorderRadius.circular(80),
                                                   child: Image.asset(
                                                     transaksi[index].gambar,
-                                                    // width: 100,
                                                     errorBuilder:
                                                         (BuildContext context,
                                                             Object exception,

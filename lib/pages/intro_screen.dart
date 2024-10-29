@@ -119,7 +119,6 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
             ),
           ),
           SizedBox(
-            // height: 100,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
