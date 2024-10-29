@@ -45,6 +45,7 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
                 constraints: const BoxConstraints(maxWidth: 600),
                 child: Column(
                   children: [
+                    SizedBox(height: 70,),
                     Expanded(
                       child: PageView.builder(
                         controller: _pageController,
@@ -183,6 +184,7 @@ class _IntroScreenpageState extends State<IntroScreenpage> {
             ),
             child: Column(
               children: [
+                SizedBox(height: 70,),
                 Expanded(
                   child: PageView.builder(
                     controller: _pageController,
