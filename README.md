@@ -54,6 +54,8 @@ Proyek ini dibuat oleh Rahmatul Firdaus
 ## Tampilan Website
 
 <img src="https://github.com/user-attachments/assets/3949452c-7ee1-4895-a9a8-62b61cfca32c" alt="Screenshot 2024-10-29 145353" width="250"/>
+<img src="https://github.com/user-attachments/assets/8a8f4e1a-8cb2-430f-b47e-fc068ea5bcb7" alt="Screenshot 2024-10-29 145337" width="250"/>
+<img src="https://github.com/user-attachments/assets/ebc8068d-130e-4234-af24-7dc7e5de9613" alt="Screenshot 2024-10-29 145320" width="250"/>
 <img src="https://github.com/user-attachments/assets/8e7bfb14-917a-478f-af17-52fe0d1ba16e" alt="Screenshot 2024-10-29 145405" width="250"/>
 <img src="https://github.com/user-attachments/assets/8d3b0b8a-99aa-4979-a871-4b04a53378b3" alt="Screenshot 2024-10-29 145423" width="250"/>
 <img src="https://github.com/user-attachments/assets/53ec2fe1-d201-40d2-aaee-2f7a9083d311" alt="Screenshot 2024-10-29 145456" width="250"/>
@@ -71,5 +73,3 @@ Proyek ini dibuat oleh Rahmatul Firdaus
 <img src="https://github.com/user-attachments/assets/68167ad4-0531-4f59-a4b4-1060c21ecdf0" alt="Screenshot 2024-10-29 145744" width="250"/>
 <img src="https://github.com/user-attachments/assets/187fb7bf-ddbb-4505-867e-c52346675650" alt="Screenshot 2024-10-29 145754" width="250"/>
 <img src="https://github.com/user-attachments/assets/e2748b40-ba82-4416-ac1d-20eaaf4aa02c" alt="Screenshot 2024-10-29 145805" width="250"/>
-<img src="https://github.com/user-attachments/assets/ebc8068d-130e-4234-af24-7dc7e5de9613" alt="Screenshot 2024-10-29 145320" width="250"/>
-<img src="https://github.com/user-attachments/assets/ff2bc3fb-04e7-4d1f-b625-290dffdd0c34" alt="Screenshot 2024-10-29 145339" width="250"/>
