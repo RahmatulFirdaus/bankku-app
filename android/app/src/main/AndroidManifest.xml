@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
-        android:label="id_camp_final_project"
+        android:label="Bankku"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

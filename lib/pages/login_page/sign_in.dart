@@ -28,246 +28,227 @@ class _SigninpageState extends State<Signinpage> {
     return Scaffold(
       body: LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxWidth > 600) {
-          return Container(
-            height: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                const Color.fromARGB(255, 255, 255, 255),
-                Colors.blue.shade200
-              ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
-            ),
-            child: SafeArea(
-              child: Center(
-                child: Container(
-                  constraints: const BoxConstraints(
-                      maxWidth: 500), // untuk membatasi lebar maksimal
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: SafeArea(child: _mainValue(context)),
-                ),
-              ),
-            ),
-          );
+          return _buildBody(maxWidth: 500);
         } else {
-          return Container(
-            height: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                const Color.fromARGB(255, 255, 255, 255),
-                Colors.blue.shade200
-              ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
-            ),
-            child: SafeArea(child: _mainValue(context)),
-          );
+          return _buildBody();
         }
       }),
     );
   }
+
+  Widget _buildBody({double? maxWidth}) {
+    return Container(
+      height: double.infinity,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Colors.white,
+            Colors.blue.shade50,
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+      child: SafeArea(
+        child: Center(
+          child: Container(
+            constraints: BoxConstraints(maxWidth: maxWidth ?? double.infinity),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: _mainValue(context),
+          ),
+        ),
+      ),
+    );
+  }
+
   SingleChildScrollView _mainValue(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.grey.withOpacity(0.3),
-              ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 16),
               child: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+                onPressed: () => Navigator.pop(context),
                 icon: const Icon(Icons.arrow_back_ios_new),
+                style: IconButton.styleFrom(
+                  backgroundColor: Colors.grey.shade100,
+                  padding: const EdgeInsets.all(12),
+                ),
               ),
-            )
-          ]),
-          const SizedBox(
-            height: 20,
+            ),
           ),
-          Container(
-            margin: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+          const SizedBox(height: 32),
+          const Text(
+            "Welcome Back",
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            "Sign in to continue",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.grey.shade600,
+            ),
+          ),
+          const SizedBox(height: 32),
+          _buildInputField(
+            label: "Email Address",
+            controller: emailController,
+            hintText: email,
+            prefixIcon: Icons.email_outlined,
+          ),
+          const SizedBox(height: 16),
+          _buildInputField(
+            label: "Password",
+            controller: passwordController,
+            hintText: password,
+            prefixIcon: Icons.lock_outline,
+            isPassword: true,
+          ),
+          const SizedBox(height: 24),
+          ElevatedButton(
+            onPressed: _handleSignIn,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              elevation: 0,
+            ),
             child: const Text(
               "Sign In",
-              style: TextStyle(
-                fontSize: 45,
-              ),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
           ),
-          const SizedBox(
-            height: 40,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 22),
-            child: Text("Email Adress",
-                style: TextStyle(
-                    fontSize: 15, color: Colors.black.withOpacity(0.5))),
-          ),
-          Container(
-              margin: const EdgeInsets.fromLTRB(22, 0, 23, 0),
-              child: TextField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.all(10),
-                  hintText: email,
-                  hintStyle: TextStyle(color: Colors.black.withOpacity(0.5)),
-                  prefixIcon: const Icon(
-                    Icons.email_outlined,
-                  ),
-                ),
-              )),
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 22),
-            child: Text("Password",
-                style: TextStyle(
-                    fontSize: 15, color: Colors.black.withOpacity(0.5))),
-          ),
-          Container(
-              padding: const EdgeInsets.fromLTRB(22, 0, 23, 0),
-              child: TextFormField(
-                controller: passwordController,
-                //_visiblePassword bernilai true
-                obscureText: _visiblePassword,
-                decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.all(10),
-                    hintText: password,
-                    hintStyle: TextStyle(color: Colors.black.withOpacity(0.5)),
-                    prefixIcon: const Icon(
-                      Icons.lock_outline,
-                    ),
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          //ketika di klik, maka nilai variabel berubah dari true ke false
-                          _visiblePassword = !_visiblePassword;
-                        });
-                      },
-                      //jika visiblePassword bernilai true maka icon yang muncul adalah visibility_off_outlined, jika false maka icon yang muncul adalah remove_red_eye_outlined
-                      icon: Icon(_visiblePassword
-                          ? Icons.visibility_off_outlined
-                          : Icons.remove_red_eye_outlined),
-                    )),
-              )),
-          const SizedBox(
-            height: 45,
-          ),
-          Container(
-            height: 50,
-            margin: const EdgeInsets.symmetric(horizontal: 22),
-            child: ElevatedButton(
-              onPressed: () {
-                //validasi saat email dan password kosong
-                if (emailController.text == "" && passwordController.text == "") {
-                  Fluttertoast.showToast(
-                      msg: "Please enter your email and password",
-                      textColor: Colors.white,
-                      backgroundColor: const Color.fromARGB(
-                          255, 255, 17, 0), //warna bg android
-                      gravity: ToastGravity.BOTTOM, //posisi pada android
-                      timeInSecForIosWeb: 3, //lama muncul pesan pada web
-                      webPosition: "center", //posisi pada web + kombinasi gravity
-                      webBgColor: "red", //warna pada web
-                      toastLength: Toast.LENGTH_LONG //lama muncul android
-                      );
-                  //validasi saat email kosong
-                } else if (emailController.text == "") {
-                  Fluttertoast.showToast(
-                      msg: "Please enter your email",
-                      textColor: Colors.white,
-                      backgroundColor: const Color.fromARGB(
-                          255, 255, 17, 0), //warna bg android
-                      gravity: ToastGravity.BOTTOM, //posisi pada android
-                      timeInSecForIosWeb: 3, //lama muncul pesan pada web
-                      webPosition: "center", //posisi pada web + kombinasi gravity
-                      webBgColor: "red", //warna pada web
-                      toastLength: Toast.LENGTH_LONG //lama muncul android
-                      );
-                  //validasi saat password kosong
-                } else if (passwordController.text == "") {
-                  Fluttertoast.showToast(
-                      msg: "Please enter password",
-                      textColor: Colors.white,
-                      backgroundColor: const Color.fromARGB(
-                          255, 255, 17, 0), //warna bg android
-                      gravity: ToastGravity.BOTTOM, //posisi pada android
-                      timeInSecForIosWeb: 3, //lama muncul pesan pada web
-                      webPosition: "center", //posisi pada web + kombinasi gravity
-                      webBgColor: "red", //warna pada web
-                      toastLength: Toast.LENGTH_LONG //lama muncul android
-                      );
-                } else if (emailController.text == "" &&
-                    passwordController.text == "") {
-                  Fluttertoast.showToast(
-                      msg: "Please enter your email and password",
-                      textColor: Colors.white,
-                      backgroundColor: const Color.fromARGB(
-                          255, 255, 17, 0), //warna bg android
-                      gravity: ToastGravity.BOTTOM, //posisi pada android
-                      timeInSecForIosWeb: 3, //lama muncul pesan pada web
-                      webPosition: "center", //posisi pada web + kombinasi gravity
-                      webBgColor: "red", //warna pada web
-                      toastLength: Toast.LENGTH_LONG //lama muncul android
-                      );
-                } else if (emailController.text == "Admin" &&
-                    passwordController.text == "Admin123") {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Getxcontrollerpage()));
-                } else {
-                  Fluttertoast.showToast(
-                      msg: "Invalid email or password",
-                      textColor: Colors.white,
-                      backgroundColor: const Color.fromARGB(
-                          255, 255, 17, 0), //warna bg android
-                      gravity: ToastGravity.BOTTOM, //posisi pada android
-                      timeInSecForIosWeb: 3, //lama muncul pesan pada web
-                      webPosition: "center", //posisi pada web + kombinasi gravity
-                      webBgColor: "red", //warna pada web
-                      toastLength: Toast.LENGTH_LONG //lama muncul android
-                      );
-                }
-              },
-              style: ButtonStyle(
-                shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30))),
-                backgroundColor:
-                    WidgetStatePropertyAll(Colors.blue.withOpacity(0.8)),
-              ),
-              child: const Text(
-                "Sign In",
-                style: TextStyle(color: Colors.white, fontSize: 17),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(children: [
-                const Text("Don't have an account?"),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return const Signup();
-                      },
-                    ));
-                  },
-                  child: const Text("Sign Up"),
-                )
-              ])
+              Text(
+                "Don't have an account? ",
+                style: TextStyle(color: Colors.grey.shade700),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Signup()));
+                },
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.blue,
+                  padding: EdgeInsets.zero,
+                  minimumSize: Size.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                child: const Text(
+                  "Sign Up",
+                  style: TextStyle(fontWeight: FontWeight.w600),
+                ),
+              ),
             ],
-          )
+          ),
         ],
       ),
+    );
+  }
+
+  Widget _buildInputField({
+    required String label,
+    required TextEditingController controller,
+    required String hintText,
+    required IconData prefixIcon,
+    bool isPassword = false,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+            color: Colors.grey.shade700,
+          ),
+        ),
+        const SizedBox(height: 8),
+        TextFormField(
+          controller: controller,
+          obscureText: isPassword ? _visiblePassword : false,
+          decoration: InputDecoration(
+            hintText: hintText,
+            hintStyle: TextStyle(color: Colors.grey.shade400, fontSize: 14),
+            prefixIcon: Icon(prefixIcon, size: 20, color: Colors.grey.shade600),
+            suffixIcon: isPassword
+                ? IconButton(
+                    icon: Icon(
+                      _visiblePassword
+                          ? Icons.visibility_off_outlined
+                          : Icons.remove_red_eye_outlined,
+                      size: 20,
+                      color: Colors.grey.shade600,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _visiblePassword = !_visiblePassword;
+                      });
+                    },
+                  )
+                : null,
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(color: Colors.grey.shade200),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(color: Colors.grey.shade200),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: const BorderSide(color: Colors.blue, width: 1.5),
+            ),
+            filled: true,
+            fillColor: Colors.white,
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _handleSignIn() {
+    if (emailController.text.isEmpty && passwordController.text.isEmpty) {
+      _showToast("Please enter your email and password");
+    } else if (emailController.text.isEmpty) {
+      _showToast("Please enter your email");
+    } else if (passwordController.text.isEmpty) {
+      _showToast("Please enter password");
+    } else if (emailController.text == "Admin" &&
+        passwordController.text == "Admin123") {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const Getxcontrollerpage()));
+    } else {
+      _showToast("Invalid email or password");
+    }
+  }
+
+  void _showToast(String message) {
+    Fluttertoast.showToast(
+      msg: message,
+      textColor: Colors.white,
+      backgroundColor: Colors.red,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 3,
+      webPosition: "center",
+      webBgColor: "red",
+      toastLength: Toast.LENGTH_LONG,
     );
   }
 }

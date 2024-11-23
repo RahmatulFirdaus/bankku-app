@@ -10,308 +10,188 @@ class IntroScreenpage extends StatefulWidget {
 }
 
 class _IntroScreenpageState extends State<IntroScreenpage> {
+  late final PageController _pageController;
   List<Intromodel> introModel = [];
-  PageController _pageController = PageController();
   var indexNow = 0;
-
-  void _getInitialInfo() {
-    introModel = Intromodel.getIntroModel();
-  }
 
   @override
   void initState() {
     super.initState();
-    _getInitialInfo();
+    _pageController = PageController();
+    introModel = Intromodel.getIntroModel();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _onNextPress() {
+    if (indexNow < introModel.length - 1) {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeOutQuint,
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const Signinpage()),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth > 600) {
+      body: LayoutBuilder(
+        builder: (context, constraints) {
           return Container(
             height: double.infinity,
             decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                const Color.fromARGB(255, 255, 255, 255),
-                Colors.blue.shade200
-              ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+              gradient: LinearGradient(
+                colors: [
+                  Colors.white,
+                  Colors.blue.shade50,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
-            //metode ini digunakan untuk membuat layout secara ditengah
-            child: Align(
-              alignment: Alignment.center,
-              //sama seperti container constraint 
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 600),
-                child: Column(
-                  children: [
-                    SizedBox(height: 70,),
-                    Expanded(
-                      child: PageView.builder(
-                        controller: _pageController,
-                        onPageChanged: (index) {
-                          setState(() {
-                            indexNow = index;
-                          });
-                        },
-                        itemCount: introModel.length,
-                        itemBuilder: (context, index) {
-                          return SingleChildScrollView(
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  AspectRatio(
-                                    aspectRatio: 16 / 9,
-                                    child: Container(
-                                      margin: const EdgeInsets.only(top: 50),
-                                      child: Image.asset(
-                                        introModel[index].linkGambar,
-                                        fit: BoxFit.contain,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                                    child: Text(
-                                      introModel[index].judul,
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 28,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(horizontal: 20),
-                                    child: Text(
-                                      introModel[index].deskripsi,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.black.withOpacity(0.6),
-                                        height: 1.5,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 20),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(
-                          introModel.length,
-                          (index) => Container(
-                            width: (indexNow == index) ? 13 : 7,
-                            height: 7,
-                            margin: const EdgeInsets.symmetric(horizontal: 5),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(80),
-                              color:
-                                  (indexNow == index) ? Colors.blue : Colors.grey,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(bottom: 40, left: 40, right: 40),
-                      child: InkWell(
-                        onTap: () {
-                          if (indexNow < introModel.length - 1) {
-                            _pageController.nextPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut,
-                            );
-                          } else {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Signinpage(),
-                              ),
-                            );
-                          }
-                        },
-                        child: Container(
-                          height: 70,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 0, 140, 255),
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: const Offset(0, 3),
-                              ),
-                            ],
-                          ),
-                          child: Center(
-                            child: Text(
-                              (indexNow == introModel.length - 1)
-                                  ? "Mulai"
-                                  : "Selanjutnya",
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 20),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+            child: SafeArea(
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth:
+                        constraints.maxWidth > 600 ? 500 : double.infinity,
+                  ),
+                  child: _buildContent(),
                 ),
               ),
             ),
           );
-        } else {
-          return Container(
-            height: double.infinity,
+        },
+      ),
+    );
+  }
+
+  Widget _buildContent() {
+    return Column(
+      children: [
+        const SizedBox(height: 32),
+        Expanded(
+          child: PageView.builder(
+            controller: _pageController,
+            onPageChanged: (index) => setState(() => indexNow = index),
+            itemCount: introModel.length,
+            itemBuilder: (context, index) => _buildPage(introModel[index]),
+          ),
+        ),
+        _buildPageIndicator(),
+        _buildNextButton(),
+      ],
+    );
+  }
+
+  Widget _buildPage(Intromodel model) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 32),
+              height: MediaQuery.of(context).size.height * 0.4,
+              child: Image.asset(
+                model.linkGambar,
+                fit: BoxFit.contain,
+              ),
+            ),
+            const SizedBox(height: 40),
+            Text(
+              model.judul,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+                letterSpacing: -0.5,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              model.deskripsi,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.grey.shade700,
+                height: 1.6,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPageIndicator() {
+    return Container(
+      padding: const EdgeInsets.only(bottom: 32),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(
+          introModel.length,
+          (index) => AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            width: indexNow == index ? 24 : 8,
+            height: 8,
+            margin: const EdgeInsets.symmetric(horizontal: 4),
             decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                const Color.fromARGB(255, 255, 255, 255),
-                Colors.blue.shade200
-              ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+              borderRadius: BorderRadius.circular(12),
+              color: indexNow == index
+                  ? Colors.blue
+                  : Colors.blue.withOpacity(0.2),
             ),
-            child: Column(
-              children: [
-                SizedBox(height: 70,),
-                Expanded(
-                  child: PageView.builder(
-                    controller: _pageController,
-                    onPageChanged: (index) {
-                      setState(() {
-                        indexNow = index;
-                      });
-                    },
-                    itemCount: introModel.length,
-                    itemBuilder: (context, index) {
-                      return SingleChildScrollView(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              AspectRatio(
-                                aspectRatio: 16 / 9,
-                                child: Container(
-                                  margin: const EdgeInsets.only(top: 50),
-                                  child: Image.asset(
-                                    introModel[index].linkGambar,
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                                child: Text(
-                                  introModel[index].judul,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 28,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 20),
-                                child: Text(
-                                  introModel[index].deskripsi,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.6),
-                                    height: 1.5,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 20),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      introModel.length,
-                      (index) => Container(
-                        width: (indexNow == index) ? 13 : 7,
-                        height: 7,
-                        margin: const EdgeInsets.symmetric(horizontal: 5),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                          color:
-                              (indexNow == index) ? Colors.blue : Colors.grey,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.only(bottom: 40, left: 40, right: 40),
-                  child: InkWell(
-                    onTap: () {
-                      if (indexNow < introModel.length - 1) {
-                        _pageController.nextPage(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeInOut,
-                        );
-                      } else {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Signinpage(),
-                          ),
-                        );
-                      }
-                    },
-                    child: Container(
-                      height: 70,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 0, 140, 255),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: Center(
-                        child: Text(
-                          (indexNow == introModel.length - 1)
-                              ? "Mulai"
-                              : "Selanjutnya",
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 20),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNextButton() {
+    final isLastPage = indexNow == introModel.length - 1;
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(24, 0, 24, 32),
+      child: ElevatedButton(
+        onPressed: _onNextPress,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          elevation: 0,
+          minimumSize: const Size(double.infinity, 56),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              isLastPage ? "Mulai" : "Selanjutnya",
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.5,
+              ),
             ),
-          );
-        }
-      }),
+            if (!isLastPage) ...[
+              const SizedBox(width: 8),
+              const Icon(Icons.arrow_forward_rounded, size: 20),
+            ],
+          ],
+        ),
+      ),
     );
   }
 }

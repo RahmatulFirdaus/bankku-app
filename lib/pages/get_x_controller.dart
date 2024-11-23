@@ -20,7 +20,6 @@ class _GetxcontrollerpageState extends State<Getxcontrollerpage> {
     //Obx merupakan bagian dari GetX yang berfungsi untuk memantau perubahan reaktif dari class navigation Controller, ketika selected index berubah, maka tampilan juga akan berubah
     return Obx(() => Scaffold(
         body: _navController.screen[_navController.selectedIndex.value],
-
         bottomNavigationBar: NavigationBar(
           backgroundColor: Colors.white,
           selectedIndex: _navController.selectedIndex.value,
@@ -30,8 +29,10 @@ class _GetxcontrollerpageState extends State<Getxcontrollerpage> {
           destinations: const [
             NavigationDestination(icon: Icon(Icons.home), label: "Home"),
             NavigationDestination(icon: Icon(Icons.person), label: "My Cards"),
-            NavigationDestination(icon: Icon(Icons.analytics), label: "Statistics"),
-            NavigationDestination(icon: Icon(Icons.settings), label: "Settings"),
+            NavigationDestination(
+                icon: Icon(Icons.analytics), label: "Statistics"),
+            NavigationDestination(
+                icon: Icon(Icons.settings), label: "Settings"),
           ],
         )));
   }

@@ -66,140 +66,16 @@ class _StatisticspageState extends State<Statisticspage> {
 
   SingleChildScrollView _valueWide(BuildContext context) {
     return SingleChildScrollView(
-            child: Center(
-              child: Container(
-                width: 1000, 
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Row(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Current Balance",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black.withOpacity(0.5),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            "\$ 14852.99",
-                            style: TextStyle(
-                              fontSize: 26,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          Container(
-                            width: 600,
-                            height: 300,
-                            child: const Linechart(),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                "Transaction History",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text("Fitur belum tersedia")),
-                                  );
-                                },
-                                child: const Text(
-                                  "See All",
-                                  style: TextStyle(color: Colors.blue),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 20),
-                          ListView.separated(
-                            scrollDirection: Axis.vertical,
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: transaksi.length,
-                            itemBuilder: (context, index) {
-                              return ListTile(
-                                title: Text(
-                                  transaksi[index].judul,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                subtitle: Text(
-                                  transaksi[index].deskripsi,
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(0.5),
-                                  ),
-                                ),
-                                trailing: Text(
-                                  transaksi[index].nominal,
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                                leading: SizedBox(
-                                  width: 50,
-                                  height: 50,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(25),
-                                    child: Image.asset(
-                                      transaksi[index].gambar,
-                                      fit: BoxFit.cover,
-                                      errorBuilder:
-                                          (context, error, stackTrace) {
-                                        return const Icon(
-                                          Icons.broken_image,
-                                          size: 30,
-                                          color: Colors.grey,
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                            separatorBuilder: (context, index) =>
-                                const SizedBox(height: 10),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          );
-  }
-
-  SingleChildScrollView _valueMobile(BuildContext context) {
-    return SingleChildScrollView(
-            child: Center(
-              child: Container(
-                margin: const EdgeInsets.symmetric(vertical: 10),
+      child: Center(
+        child: Container(
+          width: 1000,
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       "Current Balance",
@@ -218,34 +94,42 @@ class _StatisticspageState extends State<Statisticspage> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    const Linechart(),
-                    const SizedBox(height: 20),
                     Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "Transaction History",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
+                      width: 600,
+                      height: 300,
+                      child: const Linechart(),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 20),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Transaction History",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text("Fitur belum tersedia")),
-                              );
-                            },
-                            child: const Text(
-                              "See All",
-                              style: TextStyle(color: Colors.blue),
-                            ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text("Fitur belum tersedia")),
+                            );
+                          },
+                          child: const Text(
+                            "See All",
+                            style: TextStyle(color: Colors.blue),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 20),
                     ListView.separated(
@@ -302,7 +186,121 @@ class _StatisticspageState extends State<Statisticspage> {
                   ],
                 ),
               ),
-            ),
-          );
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  SingleChildScrollView _valueMobile(BuildContext context) {
+    return SingleChildScrollView(
+      child: Center(
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          child: Column(
+            children: [
+              Text(
+                "Current Balance",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black.withOpacity(0.5),
+                ),
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                "\$ 14852.99",
+                style: TextStyle(
+                  fontSize: 26,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Linechart(),
+              const SizedBox(height: 20),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Transaction History",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("Fitur belum tersedia")),
+                        );
+                      },
+                      child: const Text(
+                        "See All",
+                        style: TextStyle(color: Colors.blue),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              ListView.separated(
+                scrollDirection: Axis.vertical,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: transaksi.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(
+                      transaksi[index].judul,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                    subtitle: Text(
+                      transaksi[index].deskripsi,
+                      style: TextStyle(
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                    ),
+                    trailing: Text(
+                      transaksi[index].nominal,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
+                    ),
+                    leading: SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(25),
+                        child: Image.asset(
+                          transaksi[index].gambar,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return const Icon(
+                              Icons.broken_image,
+                              size: 30,
+                              color: Colors.grey,
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 10),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
